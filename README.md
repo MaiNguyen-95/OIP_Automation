@@ -1,2 +1,6 @@
 # OIP_Automation
-Automation for OIP project
+
+npm install
+npx playwright install
+npm run test
+npx ts-node saveOutlookAuth.ts
