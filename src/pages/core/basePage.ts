@@ -16,5 +16,13 @@ export class BasePage {
 
   //#region Actions
 
+  async input(name: string, value: string) {
+    await this.locator.textbox(name).fill(value);
+  }
+
+  async clickButton(name: string) {
+    await this.locator.button(name).click();
+  }
+
   //#endregion
 }
