@@ -22,14 +22,13 @@ When("User clicks on the {string} button", async function (name: string) {
 When(
   "User clicks on the {string} link",
   async function (this: CustomWorld, name: string) {
-    const basePage: BasePage = this.basePage;
-    await basePage.clickLink(name);
+    await this.basePage.clickLink(name);
   },
 );
 
 // Step verify navigate after click link
 Then(
-  "User is navigated to a new page {string}",
+  "User is navigated to the {string} page",
   async function (this: CustomWorld, path: string) {
     await expect(this.page).toHaveURL(new RegExp(path));
   },
