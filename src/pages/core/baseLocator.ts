@@ -1,19 +1,41 @@
-import { Page, Locator } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
 
 export class BaseLocator {
-  constructor(protected page: Page) {}
+    constructor(protected readonly page: Page) {}
 
-  textbox = (name: string) => {
-    return this.page
-      .getByRole("textbox", { name })
-      .or(this.page.getByLabel(name))
-      .or(this.page.getByPlaceholder(name))
-      .or(this.page.locator(`[data-testid="input-${name}"]`));
-  };
+    tenantDropdown(): Locator {
+        return this.page.locator('button[data-testid="tenant-dropdown"]');
+    }
 
-  button = (name: string) => {
-    return this.page
-      .getByRole("button", { name })
-      .or(this.page.locator(`[aria-label="${name}"]`));
-  };
+    txtGeneralInputField(name: string): Locator {
+        return this.page.locator(`xpath=//input[@name='${name}']`);
+    }
+
+    comboboxOption(tenant: string): Locator {
+        return this.page.locator(`xpath=//div[normalize-space()="${tenant}"]`);
+    }
+
+    sendLoginLinkButton(text: string): Locator {
+        return this.page.locator(`xpath=(//button[contains(., "${text}")])`);
+    }
+
+    optionInCombobox(dataTestId: string): Locator {
+        return this.page.locator(`xpath=(.//span[text()="${dataTestId}"])`);
+    }
+
+    timerange(dataTestId: string, timerange: string): Locator {
+        return this.page.locator(`xpath=(//div[@data-testid="${dataTestId}"]//button[normalize-space()="${timerange}"])`);
+    }
+
+    expandServiceButton(service: string): Locator {
+        return this.page.locator(`xpath=(//span[.="${service}"]/../button)`);
+    }
+
+    successPopupTitle(text: string): Locator {
+        return this.page.locator(`xpath=//h1[contains(., "${text}")]`);
+    }
+
+    failedTitle(text: string): Locator {
+        return this.page.locator(`xpath=//p[contains(., "${text}")]`);
+    }
 }

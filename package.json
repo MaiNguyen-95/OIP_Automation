@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js \"src/features/**/*.feature\" --require-module ts-node/register --require \"src/**/*.ts\" --format json:report/cucumber-report.json",
+    "test": "cucumber-js \"src/feature/**/*.feature\" --require-module ts-node/register --require \"src/**/*.ts\" --format json:report/cucumber-report.json",
     "generate-report": "node generate-html-report.js",
     "test:with-report": "npm run test || true && npm run generate-report",
     "format": "prettier --write ."
@@ -15,7 +15,7 @@
   "type": "commonjs",
   "devDependencies": {
     "@cucumber/cucumber": "^12.5.0",
-    "@playwright/test": "^1.57.0",
+    "@playwright/test": "^1.61.1",
     "@types/imap-simple": "^4.2.10",
     "@types/node": "^25.5.2",
     "dotenv": "^17.4.2",
