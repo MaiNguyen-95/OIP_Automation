@@ -16,4 +16,10 @@ export class BaseLocator {
       .getByRole("button", { name })
       .or(this.page.locator(`[aria-label="${name}"]`));
   };
+
+  link = (name: string) => {
+    return this.page
+      .getByRole("link", { name })
+      .or(this.page.locator(`[aria-label="${name}"]`));
+  };
 }

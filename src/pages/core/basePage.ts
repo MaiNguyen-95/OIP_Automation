@@ -29,5 +29,12 @@ export class BasePage {
     await this.page.waitForTimeout(3000);
   }
 
-  //#endregion
+  async clickLink(name: string) {
+    await this.locator.link(name).waitFor({ state: "visible" });
+    await this.locator.link(name).click();
+    await this.page.waitForURL("**/*", { timeout: 5000 });
+    await this.page.waitForTimeout(3000);
+  }
 }
+
+//#endregion
