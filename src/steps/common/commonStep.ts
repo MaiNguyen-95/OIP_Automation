@@ -33,3 +33,34 @@ Then(
     await expect(this.page).toHaveURL(new RegExp(path));
   },
 );
+Then(
+  "User should see text {string}",
+  async function (this: CustomWorld, text: string) {
+    await this.basePage.verifyTextVisible(text);
+  },
+);
+When(
+  "User click {string} to open Dropdown list",
+  async function (tenant: string) {
+    await this.basePage.clickOpenDropdownList(tenant);
+  },
+);
+When(
+  "User selects {string} from the dropdown list",
+  async function (option: string) {
+    await this.basePage.selectOptionFromDropdown(option);
+  },
+);
+When(
+  "User opens {string} checkbox dropdown with index {int}",
+  async function (checkbox: string, index: number) {
+    await this.basePage.OpenListCheckbox(checkbox, index);
+  },
+);
+When(
+  "User selects {string} from the checkbox list",
+  async function (options: string) {
+    const checkboxes = options.split(",").map((option) => option.trim());
+    await this.basePage.selectCheckboxOptions(...checkboxes);
+  },
+);

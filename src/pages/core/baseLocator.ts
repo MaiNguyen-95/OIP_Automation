@@ -22,4 +22,15 @@ export class BaseLocator {
       .getByRole("link", { name })
       .or(this.page.locator(`[aria-label="${name}"]`));
   };
+
+  dropdownlist = (tenant: string) =>
+    this.page.locator(`xpath=//div[normalize-space()="${tenant}"]`);
+
+  dropdownlistcheckbox = (checkbox: string, index: number) =>
+    this.page.locator(
+      `xpath=(//span[normalize-space()='${checkbox}'])[${index}]`,
+    );
+
+  selectcheckbox = (checkbox: string) =>
+    this.page.locator(`xpath=(//span[normalize-space()='${checkbox}'])`);
 }
