@@ -16,7 +16,7 @@ export class BasePage {
 
   //#region Actions
 
-  async input(name: string, value: string) {
+  async fillTextbox(name: string, value: string) {
     await this.locator.textbox(name).waitFor({ state: "visible" });
     await this.locator.textbox(name).clear();
     await this.locator.textbox(name).fill(value);
