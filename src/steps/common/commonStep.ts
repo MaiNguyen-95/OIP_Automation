@@ -34,15 +34,15 @@ Then(
   },
 );
 Then(
-  "User should see text {string}",
-  async function (this: CustomWorld, text: string) {
-    await this.basePage.verifyTextVisible(text);
+  "User verifies the {string} text is {string}",
+  async function (this: CustomWorld, text: string, state: string) {
+    await this.basePage.verifyText(text, state);
   },
 );
 When(
   "User click {string} to open Dropdown list",
-  async function (tenant: string) {
-    await this.basePage.clickOpenDropdownList(tenant);
+  async function (name: string) {
+    await this.basePage.clickOpenDropdownList(name);
   },
 );
 When(

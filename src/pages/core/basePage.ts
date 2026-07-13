@@ -36,12 +36,24 @@ export class BasePage {
     await this.page.waitForTimeout(3000);
   }
 
-  async verifyTextVisible(text: string): Promise<void> {
-    await expect(this.page.getByText(text)).toBeVisible();
+  async verifyText(text: string, state: string): Promise<void> {
+    const locator = this.page.getByText(text);
+
+    if (state === "visible") {
+      await expect(locator).toBeVisible();
+    } else if (state === "hidden") {
+      await expect(locator).toBeHidden();
+    } else if (state === "attached") {
+      await expect(locator).toBeAttached();
+    } else if (state === "detached") {
+      await expect(locator).not.toBeAttached();
+    } else {
+      throw new Error(`Unsupported state: ${state}`);
+    }
   }
 
-  async clickOpenDropdownList(tenant: string): Promise<void> {
-    const button = this.locator.dropdownlist(tenant);
+  async clickOpenDropdownList(name: string): Promise<void> {
+    const button = this.locator.dropdownlist(name);
     await button.waitFor({ state: "visible", timeout: 5000 });
     await button.click();
   }
