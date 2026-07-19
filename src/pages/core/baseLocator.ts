@@ -14,6 +14,7 @@ export class BaseLocator {
   button = (name: string) => {
     return this.page
       .getByRole("button", { name })
+      .or(this.page.locator("button", { hasText: name }))
       .or(this.page.locator(`[aria-label="${name}"]`));
   };
 

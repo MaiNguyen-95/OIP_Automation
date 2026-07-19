@@ -1,4 +1,4 @@
-import { Page, expect, Locator } from "playwright/test";
+import { Page, expect, Locator } from "@playwright/test";
 import * as dotenv from "dotenv";
 import { BaseLocator } from "./baseLocator";
 dotenv.config(); // Load environment variables from .env
@@ -34,6 +34,10 @@ export class BasePage {
     await this.locator.link(name).click();
     await this.page.waitForURL("**/*", { timeout: 5000 });
     await this.page.waitForTimeout(3000);
+  }
+
+  async verifyOnPage(path: string) {
+    await expect(this.page).toHaveURL(new RegExp(path));
   }
 }
 

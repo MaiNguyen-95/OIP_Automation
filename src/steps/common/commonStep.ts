@@ -5,11 +5,19 @@ import { BasePage } from "../../pages/core/basePage";
 
 //#region Step Definitions
 
+// Step navigate to a page
+Given(
+  "User is on the {string} page",
+  async function (this: CustomWorld, path: string) {
+    await this.page.goto(path);
+  },
+);
+
 // Step input text into a field
 When(
   "User inputs {string} in the {string} field",
   async function (value: string, name: string) {
-    await this.basePage.inputText(name, value);
+    await this.basePage.fillTextbox(name, value);
   },
 );
 
@@ -31,5 +39,21 @@ Then(
   "User is navigated to the {string} page",
   async function (this: CustomWorld, path: string) {
     await expect(this.page).toHaveURL(new RegExp(path));
+  },
+);
+
+// Step verify common footer "Powered by Yara" is visible
+Then(
+  "User sees the footer with Yara branding",
+  async function (this: CustomWorld) {
+    await expect(this.page.getByText("Powered by Yara")).toBeVisible();
+  },
+);
+
+// Step verify button is visible (without clicking)
+Then(
+  "User sees the {string} button",
+  async function (this: CustomWorld, name: string) {
+    await this.basePage.locator.button(name).waitFor({ state: "visible" });
   },
 );
