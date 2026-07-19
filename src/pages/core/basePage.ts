@@ -35,10 +35,6 @@ export class BasePage {
     await this.page.waitForURL("**/*", { timeout: 5000 });
     await this.page.waitForTimeout(3000);
   }
-
-  async verifyOnPage(path: string) {
-    await expect(this.page).toHaveURL(new RegExp(path));
-  }
 }
 
 //#endregion

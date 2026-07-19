@@ -41,19 +41,3 @@ Then(
     await expect(this.page).toHaveURL(new RegExp(path));
   },
 );
-
-// Step verify common footer "Powered by Yara" is visible
-Then(
-  "User sees the footer with Yara branding",
-  async function (this: CustomWorld) {
-    await expect(this.page.getByText("Powered by Yara")).toBeVisible();
-  },
-);
-
-// Step verify button is visible (without clicking)
-Then(
-  "User sees the {string} button",
-  async function (this: CustomWorld, name: string) {
-    await this.basePage.locator.button(name).waitFor({ state: "visible" });
-  },
-);
