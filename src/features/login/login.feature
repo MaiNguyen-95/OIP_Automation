@@ -12,8 +12,8 @@ Feature: Login
         Then User sees the "<successPage>" success message
 
         Examples:
-            | page   | email                | buttonName      | successPage   |
-            | /login | mai1.nguyen@yara.com | Send login link | login-success |
+            | page   | email               | buttonName      | successPage   |
+            | /login | mai.nguyen@yara.com | Send login link | login-success |
 
 
     @loginWithInvalidEmail
@@ -30,7 +30,6 @@ Feature: Login
     @verifyAftersubmitValidEmail
     Scenario Outline: Verify after submit valid email, success screen and back to login
         Given User is on the "<page>" page
-
         When User inputs "<email>" in the "Email Address" field
         And User sees the footer with Yara branding
         And User clicks on the "<buttonName>" button
