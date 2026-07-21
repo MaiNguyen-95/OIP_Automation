@@ -5,11 +5,19 @@ import { BasePage } from "../../pages/core/basePage";
 
 //#region Step Definitions
 
+// Step navigate to a page
+Given(
+  "User is on the {string} page",
+  async function (this: CustomWorld, path: string) {
+    await this.page.goto(path);
+  },
+);
+
 // Step input text into a field
 When(
   "User inputs {string} in the {string} field",
   async function (value: string, name: string) {
-    await this.basePage.inputText(name, value);
+    await this.basePage.fillTextbox(name, value);
   },
 );
 
