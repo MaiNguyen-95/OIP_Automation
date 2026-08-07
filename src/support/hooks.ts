@@ -15,6 +15,7 @@ BeforeAll(async function () {
 
 Before(async function (this: CustomWorld) {
   this.context = await browser.newContext({
+    baseURL: process.env.BASE_URL!,
     extraHTTPHeaders: {
       "x-tenant-id": process.env.TENANT_ID!,
       Origin: process.env.BASE_URL!,

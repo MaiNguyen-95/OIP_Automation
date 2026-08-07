@@ -1,4 +1,4 @@
-import { Page, expect, Locator } from "playwright/test";
+import { Page, expect, Locator } from "@playwright/test";
 import * as dotenv from "dotenv";
 import { BaseLocator } from "./baseLocator";
 dotenv.config(); // Load environment variables from .env
