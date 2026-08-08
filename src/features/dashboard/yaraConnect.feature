@@ -1,22 +1,20 @@
 Feature: Yara Connect Project
 
-    Background:
-        Given User loads data from "src/data/dashboardModules.json"
-        And User is on the "/dashboard" page
-
     @verifyModuleYaraConnect
-    Scenario Outline: User expands "<moduleName>" and verifies its sub-modules
+    Scenario Outline: User expands "<moduleName>" and verifies its sub-modules for "<countryCode>"
+        Given User loads module data from "src/data/dashboardModules.json" for country "<countryCode>"
+        And User is on the "/dashboard?countryCode=<countryCode>" page
         When User expands the "<moduleName>" row
         Then User verifies the items of "<moduleName>" are visible
 
         Examples:
-            | moduleName                              |
-            | YC - Identity Management                |
-            | YC - Home Screen                        |
-            | YC - B2C Fulfill Order (Assisted Order) |
-            | YC - B2C Fulfill Order (Normal Order)   |
-            | YC - B2B Fulfill Order (Seller)         |
-            | YC - B2B Fulfill Order (Buyer)          |
-            | YC - Campaign manager                   |
-            | YC - Order Listing                      |
-            | YC - Consent (YC app)                   |
+            | countryCode | moduleName                              |
+            | tz          | YC - Identity Management                |
+            | tz          | YC - Home Screen                        |
+            | tz          | YC - B2C Fulfill Order (Assisted Order) |
+            | tz          | YC - B2C Fulfill Order (Normal Order)   |
+            | tz          | YC - B2B Fulfill Order (Seller)         |
+            | tz          | YC - B2B Fulfill Order (Buyer)          |
+            | tz          | YC - Campaign manager                   |
+            | tz          | YC - Order Listing                      |
+            | tz          | YC - Consent (YC app)                   |

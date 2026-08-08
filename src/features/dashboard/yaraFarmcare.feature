@@ -1,25 +1,23 @@
 Feature: Yara Farmcare Project
 
-    Background:
-        Given User loads module data from "src/data/dashboardModules.json"
-        And User is on the "/dashboard" page
-
     @verifyYaraFarmcare
-    Scenario Outline: User expands "<moduleName>" and verifies its sub-modules
+    Scenario Outline: User expands "<moduleName>" and verifies its sub-modules for "<countryCode>"
+        Given User loads module data from "src/data/dashboardModules.json" for country "<countryCode>"
+        And User is on the "/dashboard?countryCode=<countryCode>" page
         When User expands the "<moduleName>" row
         Then User verifies the items of "<moduleName>" are visible
 
         Examples:
-            | moduleName                                    |
-            | YFC - Identity Management                     |
-            | YFC - Identity Management (Farmcare Shop Web) |
-            | YFC - Home Screen                             |
-            | YFC - Home Screen (Farmcare Shop Web)         |
-            | YFC - B2C Ordering (Via FC App)               |
-            | YFC - B2C Ordering (Farmcare Shop Web)        |
-            | YFC - Fertiliser Calculator                   |
-            | YFC - My Orders                               |
-            | YFC - Weather                                 |
-            | YFC - Consent (Farmcare Shop Web)             |
-            | YFC - Consent                                 |
-            | YFC - Newsfeed Management                     |
+            | countryCode | moduleName                                    |
+            | tz          | YFC - Identity Management                     |
+            | tz          | YFC - Identity Management (Farmcare Shop Web) |
+            | tz          | YFC - Home Screen                             |
+            | tz          | YFC - Home Screen (Farmcare Shop Web)         |
+            | tz          | YFC - B2C Ordering (Via FC App)               |
+            | tz          | YFC - B2C Ordering (Farmcare Shop Web)        |
+            | tz          | YFC - Fertiliser Calculator                   |
+            | tz          | YFC - My Orders                               |
+            | tz          | YFC - Weather                                 |
+            | tz          | YFC - Consent (Farmcare Shop Web)             |
+            | tz          | YFC - Consent                                 |
+            | tz          | YFC - Newsfeed Management                     |

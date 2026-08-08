@@ -1,81 +1,92 @@
 {
-  "YC - Identity Management": [
-    "Welcome",
-    "TnC",
-    "Login",
-    "Signup",
-    "Admin Approve Shop"
-  ],
-  "YC - Home Screen": ["Home loading"],
-  "YC - B2C Fulfill Order (Assisted Order)": [
-    "Browser & Cart",
-    "Discount & Checkout"
-  ],
-  "YC - B2C Fulfill Order (Normal Order)": [
-    "Decline Order",
-    "Review & Accept Order",
-    "Checkout & Scan QR",
-    "Fulfill Order"
-  ],
-  "YC - B2B Fulfill Order (Seller)": [
-    "Seller review & Confirmation",
-    "Decline Order",
-    "Scanning & Finalize"
-  ],
-  "YC - B2B Fulfill Order (Buyer)": [
-    "Shop & Product selection",
-    "Cart operations"
-  ],
-  "YC - Campaign manager": ["Campaign listing & detail"],
-  "YC - Order Listing": ["Accepted Orders", "Past Orders"],
-  "YC - Consent (YC app)": [
-    "Registration Consent",
-    "Version Update Consent",
-    "Privacy and Legal Settings"
-  ],
+  "tz": {
+    "YC - Identity Management": [
+      "Welcome",
+      "TnC",
+      "Login",
+      "Signup",
+      "Admin Approve Shop"
+    ],
+    "YC - Home Screen": ["Home loading"],
+    "YC - B2C Fulfill Order (Assisted Order)": [
+      "Browser & Cart",
+      "Discount & Checkout"
+    ],
+    "YC - B2C Fulfill Order (Normal Order)": [
+      "Decline Order",
+      "Review & Accept Order",
+      "Checkout & Scan QR",
+      "Fulfill Order"
+    ],
+    "YC - B2B Fulfill Order (Seller)": [
+      "Seller review & Confirmation",
+      "Decline Order",
+      "Scanning & Finalize"
+    ],
+    "YC - B2B Fulfill Order (Buyer)": [
+      "Shop & Product selection",
+      "Cart operations"
+    ],
+    "YC - Campaign manager": ["Campaign listing & detail"],
+    "YC - Order Listing": ["Accepted Orders", "Past Orders"],
+    "YC - Consent (YC app)": [
+      "Registration Consent",
+      "Version Update Consent",
+      "Privacy and Legal Settings"
+    ],
 
-  "YFC - Identity Management": ["Identity"],
-  "YFC - Identity Management (Farmcare Shop Web)": ["Identity", "Signup"],
-  "YFC - Home Screen": ["Home Widgets"],
-  "YFC - Home Screen (Farmcare Shop Web)": ["Home Page"],
-  "YFC - B2C Ordering (Via FC App)": ["FC App", "Stores Near You"],
-  "YFC - B2C Ordering (Farmcare Shop Web)": [
-    "Farmcare Shop Webview",
-    "Buy Products",
-    "Cart And Checkout"
-  ],
-  "YFC - Fertiliser Calculator": ["Fertiliser Calculator", "Saved Plans"],
-  "YFC - My Orders": ["My Orders", "Received Orders", "Contact Support"],
-  "YFC - Weather": ["Weather"],
-  "YFC - Consent (Farmcare Shop Web)": [
-    "Registration Consent",
-    "Version Update Consent",
-    "Privacy and Legal Settings"
-  ],
-  "YFC - Consent": [
-    "Registration Consent",
-    "Version Update Consent",
-    "Privacy and Legal Settings"
-  ],
-  "YFC - Newsfeed Management": ["Newsfeed"],
+    "YFC - Identity Management": ["Identity"],
+    "YFC - Identity Management (Farmcare Shop Web)": ["Identity", "Signup"],
+    "YFC - Home Screen": ["Home Widgets"],
+    "YFC - Home Screen (Farmcare Shop Web)": ["Home Page"],
+    "YFC - B2C Ordering (Via FC App)": ["FC App", "Stores Near You"],
+    "YFC - B2C Ordering (Farmcare Shop Web)": [
+      "Farmcare Shop Webview",
+      "Buy Products",
+      "Cart And Checkout"
+    ],
+    "YFC - Fertiliser Calculator": ["Fertiliser Calculator", "Saved Plans"],
+    "YFC - My Orders": ["My Orders", "Received Orders", "Contact Support"],
+    "YFC - Weather": ["Weather"],
+    "YFC - Consent (Farmcare Shop Web)": [
+      "Registration Consent",
+      "Version Update Consent",
+      "Privacy and Legal Settings"
+    ],
+    "YFC - Consent": [
+      "Registration Consent",
+      "Version Update Consent",
+      "Privacy and Legal Settings"
+    ],
+    "YFC - Newsfeed Management": ["Newsfeed"],
 
-  "AP - User Management": [
-    "Add New User",
-    "Login via SSO",
-    "Active Admin User",
-    "Deactive Admin User",
-    "Edit User"
-  ],
-  "AP - Store": [
-    "Deactive Store",
-    "Edit Store",
-    "Store Transaction",
-    "Store Inventory",
-    "Approve Store",
-    "Reactive Store"
-  ],
+    "AP - User Management": [
+      "Add New User",
+      "Login via SSO",
+      "Active Admin User",
+      "Deactive Admin User",
+      "Edit User"
+    ],
+    "AP - Store": [
+      "Deactive Store",
+      "Edit Store",
+      "Store Transaction",
+      "Store Inventory",
+      "Approve Store",
+      "Reactive Store"
+    ],
 
-  "Heartbeat - Heartbeat": ["OTP Check"],
+    "Heartbeat - Heartbeat": ["OTP Check"],
 
-  "Unreported Error - Unreported Error": ["Unreported Error"]
+    "Unreported Error - Unreported Error": ["Unreported Error"]
+  },
+  "gh": {},
+  "in": {},
+  "id": {},
+  "ke": {},
+  "my": {},
+  "ph": {},
+  "th": {},
+  "ug": {},
+  "vn": {}
 }

@@ -87,9 +87,9 @@ Then(
 
 //read data from JSON file
 Given(
-  "User loads data from {string}",
-  async function (this: CustomWorld, filePath: string) {
-    this.moduleData = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+  "User loads data from {string} for country {string}",
+  async function (this: CustomWorld, filePath: string, country: string) {
+    this.moduleData = JSON.parse(fs.readFileSync(filePath, "utf-8"))[country];
   },
 );
 
@@ -105,8 +105,8 @@ When(
 Then(
   "User verifies the items of {string} are visible",
   async function (this: CustomWorld, moduleName: string) {
-    for (const subModule of this.moduleData[moduleName]) {
-      await this.basePage.verifyText(subModule, "visible");
+    for (const iterm of this.moduleData[moduleName]) {
+      await this.basePage.verifyText(iterm, "visible");
     }
   },
 );
