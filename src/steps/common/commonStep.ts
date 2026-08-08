@@ -72,3 +72,38 @@ When(
     await this.basePage.selectCheckboxOptions(...checkboxes);
   },
 );
+When("User clicks tab {string} to menutab", async function (tab: string) {
+  await this.basePage.clictab(tab);
+  await this.page.waitForTimeout(2000);
+});
+Then("User verifies web app texts", async function (dataTable) {
+  const data = dataTable.hashes()[0];
+  await this.basePage.verifyWebAppTexts(
+    data.webAppName,
+    data.userName,
+    data.email,
+    data.titlePage,
+    data.currentday,
+  );
+});
+Then(
+  "User verifies the {string} tab is selected",
+  async function (tabname: string) {
+    await this.basePage.verifytabactive(tabname);
+  },
+);
+When("User selects timerange {string}", async function (timeRange: string) {
+  await this.basePage.selectTimeRange(timeRange);
+});
+Then(
+  "User verifies the {string} timerange is selected",
+  async function (timerange: string) {
+    await this.basePage.verifyTimerangeActive(timerange);
+  },
+);
+Then(
+  "User verifies the current day {string} is displayed correctly",
+  async function (currentday: string) {
+    await this.basePage.verifyCurrentDay(currentday);
+  },
+);
