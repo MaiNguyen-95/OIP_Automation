@@ -1,7 +1,8 @@
-import { Given, Then, When } from "@cucumber/cucumber";
+import { Given, Then, When, DataTable } from "@cucumber/cucumber";
 import { expect } from "@playwright/test";
 import { CustomWorld } from "../../support/world";
 import { BasePage } from "../../pages/core/basePage";
+import * as fs from "fs";
 
 //#region Step Definitions
 
@@ -70,5 +71,42 @@ When(
   async function (options: string) {
     const checkboxes = options.split(",").map((option) => option.trim());
     await this.basePage.selectCheckboxOptions(...checkboxes);
+  },
+);
+
+//verify text from datatable
+Then(
+  "User verifies the following texts are visible:",
+  async function (this: CustomWorld, table: DataTable) {
+    const texts = table.raw().flat();
+    for (const text of texts) {
+      await this.basePage.verifyText(text, "visible");
+    }
+  },
+);
+
+//read data from JSON file
+Given(
+  "User loads data from {string} for country {string}",
+  async function (this: CustomWorld, filePath: string, country: string) {
+    this.moduleData = JSON.parse(fs.readFileSync(filePath, "utf-8"))[country];
+  },
+);
+
+//expand a row by name
+When(
+  "User expands the {string} row",
+  async function (this: CustomWorld, name: string) {
+    await this.basePage.expandRow(name);
+  },
+);
+
+//Verify data from loaded JSON
+Then(
+  "User verifies the items of {string} are visible",
+  async function (this: CustomWorld, moduleName: string) {
+    for (const iterm of this.moduleData[moduleName]) {
+      await this.basePage.verifyText(iterm, "visible");
+    }
   },
 );
