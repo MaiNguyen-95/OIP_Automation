@@ -1,7 +1,7 @@
 import { Browser, BrowserContext, Page } from "@playwright/test";
 import { IWorldOptions, setWorldConstructor, World } from "@cucumber/cucumber";
 import { config } from "../support/config";
-import { BaseDashboard } from "../pages/dashboard/dashboardPage";""
+import { BaseDashboard } from "../pages/dashboard/dashboardPage";
 import { BasePage } from "../pages/core/basePage";
 export class CustomWorld extends World {
   browser!: Browser;
@@ -13,6 +13,7 @@ export class CustomWorld extends World {
 
   config = config;
   accessToken: string | undefined;
+  moduleData!: Record<string, string[]>;
 
   constructor(options: IWorldOptions) {
     super(options);

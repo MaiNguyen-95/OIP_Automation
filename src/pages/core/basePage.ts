@@ -76,6 +76,12 @@ export class BasePage {
     }
     await this.page.mouse.click(651, 625);
   }
+
+  async expandRow(name: string) {
+    await this.locator.expandRow(name).waitFor({ state: "visible" });
+    await this.locator.expandRow(name).click();
+    await this.page.waitForTimeout(1000);
+  }
 }
 
 //#endregion
