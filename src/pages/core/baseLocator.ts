@@ -11,11 +11,13 @@ export class BaseLocator {
       .or(this.page.locator(`[data-testid="input-${name}"]`));
   };
 
-  button = (name: string) => {
+  button = (name: string, index: number = 0) => {
     return this.page
       .getByRole("button", { name })
       .or(this.page.locator("button", { hasText: name }))
-      .or(this.page.locator(`[aria-label="${name}"]`));
+      .or(this.page.locator("button:visible", { hasText: name }))
+      .or(this.page.locator(`[aria-label="${name}"]`))
+      .nth(index);
   };
 
   link = (name: string) => {
@@ -37,4 +39,6 @@ export class BaseLocator {
 
   expandRow = (name: string) =>
     this.page.locator("h3", { hasText: name }).locator("button[aria-expanded]");
+
+  text = (text: string) => this.page.getByText(text, { exact: true }).first();
 }

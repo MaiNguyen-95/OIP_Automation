@@ -1,4 +1,5 @@
-import { Browser } from "playwright";
+// file: dashboardWithMagicLink.ts
+import { chromium, Browser } from "playwright";
 import * as dotenv from "dotenv";
 
 dotenv.config();
@@ -33,10 +34,11 @@ export async function getLatestMagicLinkFromOutlook(
 
   let latestMailItem: any = null;
   let latestTime = 0;
-  const maxWait = 30000;
+  const maxWait = 30000; // tối đa 30s polling
   const startTime = Date.now();
 
   while (Date.now() - startTime < maxWait) {
+    // Lấy tất cả mail có "log In" trong subject
     const mailRows = await page
       .locator("div[role='row']")
       .evaluateAll((rows) => {
@@ -66,13 +68,15 @@ export async function getLatestMagicLinkFromOutlook(
     }
 
     if (latestMailItem) break;
+
+    // Chưa có mail mới → refresh inbox
     await page.reload();
     await page.waitForTimeout(2000);
   }
 
   if (!latestMailItem) {
     await context.close();
-    throw new Error("No Login email found in the last 30 seconds");
+    throw new Error("Không tìm thấy mail login mới nhất");
   }
 
   await latestMailItem.click();
@@ -83,7 +87,7 @@ export async function getLatestMagicLinkFromOutlook(
     .getAttribute("href");
   if (!magicLink) {
     await context.close();
-    throw new Error("No magic link found in the email");
+    throw new Error("Không tìm thấy magic link");
   }
 
   await context.close();
