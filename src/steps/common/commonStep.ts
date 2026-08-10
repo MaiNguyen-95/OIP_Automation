@@ -1,7 +1,8 @@
-import { Given, Then, When } from "@cucumber/cucumber";
+import { Given, Then, When, DataTable } from "@cucumber/cucumber";
 import { expect } from "@playwright/test";
 import { CustomWorld } from "../../support/world";
 import { BasePage } from "../../pages/core/basePage";
+import * as fs from "fs";
 
 //#region Step Definitions
 
@@ -70,40 +71,5 @@ When(
   async function (options: string) {
     const checkboxes = options.split(",").map((option) => option.trim());
     await this.basePage.selectCheckboxOptions(...checkboxes);
-  },
-);
-When("User clicks tab {string} to menutab", async function (tab: string) {
-  await this.basePage.clictab(tab);
-  await this.page.waitForTimeout(2000);
-});
-Then("User verifies web app texts", async function (dataTable) {
-  const data = dataTable.hashes()[0];
-  await this.basePage.verifyWebAppTexts(
-    data.webAppName,
-    data.userName,
-    data.email,
-    data.titlePage,
-    data.currentday,
-  );
-});
-Then(
-  "User verifies the {string} tab is selected",
-  async function (tabname: string) {
-    await this.basePage.verifytabactive(tabname);
-  },
-);
-When("User selects timerange {string}", async function (timeRange: string) {
-  await this.basePage.selectTimeRange(timeRange);
-});
-Then(
-  "User verifies the {string} timerange is selected",
-  async function (timerange: string) {
-    await this.basePage.verifyTimerangeActive(timerange);
-  },
-);
-Then(
-  "User verifies the current day {string} is displayed correctly",
-  async function (currentday: string) {
-    await this.basePage.verifyCurrentDay(currentday);
   },
 );

@@ -35,24 +35,6 @@ export class BaseLocator {
   selectcheckbox = (checkbox: string) =>
     this.page.locator(`xpath=(//span[normalize-space()='${checkbox}'])`);
 
-  tabmenu = (tab: string) =>
-    this.page.locator(`xpath=(//p[normalize-space()="${tab}"])`);
-
-  name = (name: string) =>
-    this.page.locator(`//span[normalize-space()="${name}"]`);
-
-  titlepage = (titlepage: string) =>
-    this.page.locator(`//h2[normalize-space()="${titlepage}"]`);
-
-  currenttime = (currenttime: string) =>
-    this.page.locator(`//time[normalize-space()="${currenttime}"]`);
-
-  filterByOption = (option: string) =>
-    this.page.locator(`//button[normalize-space()="${option}"]`).first();
-
-  customRange = (customRange: string) =>
-    this.page.getByRole("button", { name: customRange }).first();
-
-  currentday = (currentday: string) =>
-    this.page.locator(`//div[normalize-space()="${currentday}"]`);
+  expandRow = (name: string) =>
+    this.page.locator("h3", { hasText: name }).locator("button[aria-expanded]");
 }

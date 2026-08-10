@@ -78,56 +78,10 @@ export class BasePage {
     await this.page.mouse.click(651, 625);
   }
 
-  async clictab(tabName: string): Promise<void> {
-    const button = this.locator.tabmenu(tabName);
-    await button.waitFor({ state: "visible", timeout: 10000 });
-    await button.click();
-  }
-
-  async verifytabactive(tabname: string): Promise<void> {
-    const tab = this.locator.tabmenu(tabname);
-    await expect(tab).toHaveCSS("color", COLORS.PRIMARY);
-    const underline = tab.locator("..").locator("span");
-    await expect(underline).toHaveCSS("background-color", COLORS.PRIMARY);
-  }
-
-  async verifyWebAppTexts(
-    webAppName: string,
-    userName: string,
-    email: string,
-    titlePage: string,
-    currentday: string,
-  ): Promise<void> {
-    await expect(this.locator.name(webAppName)).toBeVisible();
-    await expect(this.locator.name(userName)).toBeVisible();
-    await expect(this.locator.name(email)).toBeVisible();
-    await expect(this.locator.titlepage(titlePage)).toBeVisible();
-    const dayElement = this.locator.currentday(currentday);
-    const latestDay = await dayElement.textContent();
-    expect(latestDay).toContain(currentday);
-  }
-
-  async selectTimeRange(timeRange: string): Promise<void> {
-    const button = this.locator.filterByOption(timeRange);
-    await button.waitFor({ state: "visible", timeout: 10000 });
-    await button.click();
-  }
-
-  async verifyTimerangeActive(timerange: string): Promise<void> {
-    const timerangeButton = this.locator.filterByOption(timerange);
-    await expect(timerangeButton).toHaveCSS("color", COLORS.PRIMARY);
-    await expect(timerangeButton).toHaveCSS(
-      "text-decoration-line",
-      "underline",
-    );
-  }
-
-  async verifyCurrentDay(currentday: string): Promise<void> {
-    const dayElement = this.locator.currentday(currentday);
-    const latestDay = await dayElement.textContent();
-    console.log(`- Current Day on UI : ${latestDay}`);
-    expect(latestDay).toContain(currentday);
-    console.log("Successfully verified the current day!");
+  async expandRow(name: string) {
+    await this.locator.expandRow(name).waitFor({ state: "visible" });
+    await this.locator.expandRow(name).click();
+    await this.page.waitForTimeout(1000);
   }
 }
 

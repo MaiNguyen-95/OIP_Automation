@@ -15,6 +15,7 @@ export class CustomWorld extends World {
   baseIncidents!: BaseIncidents;
   config = config;
   accessToken: string | undefined;
+  moduleData!: Record<string, string[]>;
 
   constructor(options: IWorldOptions) {
     super(options);
