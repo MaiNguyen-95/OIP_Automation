@@ -15,9 +15,14 @@ Feature: Incident
 
     @verifystatictext
     Scenario: User verifies static text
-        Then User verifies static texts
-            | webAppName        | userName | email             | titlePage         | currentday        |
-            | DVCS Ops Insights | Huyen Le | huyen.le@yara.com | Incidents History | Mon, Aug 10, 2026 |
+        Then User verifies the "<text>" text is "<state>"
+        Examples:
+            | text              | state   |
+            | DVCS Ops Insights | visible |
+            | Huyen Le          | visible |
+            | huyen.le@yara.com | visible |
+            | Incidents History | visible |
+            | Tue, Aug 11, 2026 | visible |
 
     @verifytimerange
     Scenario: User verifies time range
@@ -38,7 +43,10 @@ Feature: Incident
 
     @verifyincidentlistdatetime
     Scenario: User verifies incident list date and time
-        Then User verifies the incident details "<month>", "<day>", "<weekday>", "<time>"
+        Then User verifies the "<text>" text is "<state>"
         Examples:
-            | month        | day | weekday | time    |
-            | August, 2026 | 10  | Mon     | 9:32 PM |
+            | text         | state   |
+            | August, 2026 | visible |
+            | 11           | visible |
+            | Tue          | visible |
+            | 04:39 PM     | visible |

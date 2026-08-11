@@ -119,20 +119,6 @@ export class BasePage {
     await expect(button).toHaveCSS("text-decoration-line", "underline");
   }
 
-  async verifyWebAppTexts(
-    webAppName: string,
-    userName: string,
-    email: string,
-    titlePage: string,
-    currentday: string,
-  ): Promise<void> {
-    await expect(this.locator.text(webAppName)).toBeVisible();
-    await expect(this.locator.text(userName)).toBeVisible();
-    await expect(this.locator.text(email)).toBeVisible();
-    await expect(this.locator.text(titlePage)).toBeVisible();
-    await expect(this.locator.text(currentday)).toBeVisible();
-  }
-
   async clickCustomRange(customRange: string): Promise<void> {
     const button = this.locator.button(customRange);
     await button.waitFor({ state: "visible" });
@@ -146,18 +132,6 @@ export class BasePage {
 
   async verifyDateRange(dateRange: string): Promise<void> {
     await expect(this.locator.text(dateRange)).toBeVisible();
-  }
-
-  async verifyIncidentByData(
-    month: string,
-    daynumber: string,
-    weekdaytext: string,
-    timetext: string,
-  ): Promise<void> {
-    await expect(this.locator.text(month)).toBeVisible();
-    await expect(this.locator.text(daynumber)).toBeVisible();
-    await expect(this.locator.text(weekdaytext)).toBeVisible();
-    await expect(this.locator.text(timetext)).toBeVisible();
   }
 }
 
