@@ -92,32 +92,6 @@ Then(
     await this.basePage.verifyTimerangeActive(timeRange);
   },
 );
-Then("User verifies static texts", async function (dataTable) {
-  const data = dataTable.hashes()[0];
-  await this.basePage.verifyWebAppTexts(
-    data.webAppName,
-    data.userName,
-    data.email,
-    data.titlePage,
-    data.currentday,
-  );
-});
-Then(
-  "User verifies the incident details {string}, {string}, {string}, {string}",
-  async function (
-    expectedMonth: string,
-    expectedDay: string,
-    expectedWeekday: string,
-    expectedTime: string,
-  ) {
-    await this.basePage.verifyIncidentByData(
-      expectedMonth,
-      expectedDay,
-      expectedWeekday,
-      expectedTime,
-    );
-  },
-);
 When("User clicks custom range {string}", async function (customRange: string) {
   await this.basePage.clickCustomRange(customRange);
 });
