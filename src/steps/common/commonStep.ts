@@ -73,40 +73,37 @@ When(
     await this.basePage.selectCheckboxOptions(...checkboxes);
   },
 );
-
-//verify text from datatable
 Then(
-  "User verifies the following texts are visible:",
-  async function (this: CustomWorld, table: DataTable) {
-    const texts = table.raw().flat();
-    for (const text of texts) {
-      await this.basePage.verifyText(text, "visible");
-    }
+  "User verifies the {string} tab is selected",
+  async function (tabname: string) {
+    await this.basePage.verifyTabActive(tabname);
   },
 );
-
-//read data from JSON file
-Given(
-  "User loads data from {string} for country {string}",
-  async function (this: CustomWorld, filePath: string, country: string) {
-    this.moduleData = JSON.parse(fs.readFileSync(filePath, "utf-8"))[country];
-  },
-);
-
-//expand a row by name
 When(
-  "User expands the {string} row",
-  async function (this: CustomWorld, name: string) {
-    await this.basePage.expandRow(name);
+  "User selects timerange {string}",
+  async function (this: CustomWorld, timeRange: string) {
+    await this.basePage.selectTimeRange(timeRange);
   },
 );
 
-//Verify data from loaded JSON
 Then(
-  "User verifies the items of {string} are visible",
-  async function (this: CustomWorld, moduleName: string) {
-    for (const iterm of this.moduleData[moduleName]) {
-      await this.basePage.verifyText(iterm, "visible");
-    }
+  "User verifies the {string} timerange is selected",
+  async function (this: CustomWorld, timeRange: string) {
+    await this.basePage.verifyTimerangeActive(timeRange);
+  },
+);
+When("User clicks custom range {string}", async function (customRange: string) {
+  await this.basePage.clickCustomRange(customRange);
+});
+When(
+  "User selects start date {string} and end date {string}",
+  async function (this: CustomWorld, startDate: string, endDate: string) {
+    await this.basePage.selectDateRange(startDate, endDate);
+  },
+);
+Then(
+  "User verifies the date range {string} is displayed",
+  async function (this: CustomWorld, dateRange: string) {
+    await this.basePage.verifyDateRange(dateRange);
   },
 );

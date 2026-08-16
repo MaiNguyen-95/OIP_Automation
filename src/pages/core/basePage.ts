@@ -1,6 +1,7 @@
 import { Page, expect, Locator } from "@playwright/test";
 import * as dotenv from "dotenv";
 import { BaseLocator } from "./baseLocator";
+import { COLORS } from "../../constants/color";
 dotenv.config(); // Load environment variables from .env
 
 export class BasePage {
@@ -15,30 +16,36 @@ export class BasePage {
   //#endregion
 
   //#region Actions
+  async goto(url: string): Promise<void> {
+    await this.page.goto(url);
+    await this.page.waitForLoadState("domcontentloaded", { timeout: 30000 });
+  }
 
   async fillTextbox(name: string, value: string) {
-    await this.locator.textbox(name).waitFor({ state: "visible" });
-    await this.locator.textbox(name).clear();
-    await this.locator.textbox(name).fill(value);
+    const textbox = this.locator.textbox(name);
+    await textbox.waitFor({ state: "visible" });
+    await textbox.clear();
+    await textbox.fill(value);
     await this.page.waitForTimeout(1000);
   }
 
   async clickButton(name: string) {
-    await this.locator.button(name).waitFor({ state: "visible" });
-    await this.locator.button(name).click();
+    const button = this.locator.button(name);
+    await button.waitFor({ state: "visible" });
+    await button.click();
     await this.page.waitForTimeout(3000);
   }
 
   async clickLink(name: string) {
-    await this.locator.link(name).waitFor({ state: "visible" });
-    await this.locator.link(name).click();
+    const link = this.locator.link(name);
+    await link.waitFor({ state: "visible" });
+    await link.click();
     await this.page.waitForURL("**/*", { timeout: 5000 });
     await this.page.waitForTimeout(3000);
   }
 
   async verifyText(text: string, state: string): Promise<void> {
-    const locator = this.page.getByText(text);
-
+    const locator = this.locator.text(text);
     if (state === "visible") {
       await expect(locator).toBeVisible();
     } else if (state === "hidden") {
@@ -78,9 +85,53 @@ export class BasePage {
   }
 
   async expandRow(name: string) {
-    await this.locator.expandRow(name).waitFor({ state: "visible" });
-    await this.locator.expandRow(name).click();
+    const row = this.locator.expandRow(name);
+    await row.waitFor({ state: "visible" });
+    await row.click();
     await this.page.waitForTimeout(1000);
+  }
+
+  async clickTab(tabName: string): Promise<void> {
+    const tab = this.locator.text(tabName);
+    await tab.waitFor({ state: "visible", timeout: 10000 });
+    await tab.click();
+  }
+
+  async verifyTabActive(tabName: string): Promise<void> {
+    const tab = this.locator.text(tabName);
+    await expect(tab).toHaveCSS("color", COLORS.PRIMARY);
+    const underline = tab.locator("..").locator("span");
+    await expect(underline).toHaveCSS("background-color", COLORS.PRIMARY);
+  }
+
+  async selectTimeRange(timeRange: string): Promise<void> {
+    const button = this.locator.button(timeRange);
+    await button.waitFor({ state: "visible", timeout: 10000 });
+    await button.click();
+  }
+
+  async verifyTimerangeActive(timeRange: string): Promise<void> {
+    const button = this.page.getByRole("button", {
+      name: timeRange,
+      exact: true,
+    });
+    await expect(button).toHaveCSS("color", COLORS.PRIMARY);
+    await expect(button).toHaveCSS("text-decoration-line", "underline");
+  }
+
+  async clickCustomRange(customRange: string): Promise<void> {
+    const button = this.locator.button(customRange);
+    await button.waitFor({ state: "visible" });
+    await button.click();
+  }
+
+  async selectDateRange(startDate: string, endDate: string): Promise<void> {
+    await this.locator.button(startDate, 0).click();
+    await this.locator.button(endDate, 1).click();
+  }
+
+  async verifyDateRange(dateRange: string): Promise<void> {
+    await expect(this.locator.text(dateRange)).toBeVisible();
   }
 }
 
