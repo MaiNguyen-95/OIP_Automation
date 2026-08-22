@@ -107,3 +107,42 @@ Then(
     await this.basePage.verifyDateRange(dateRange);
   },
 );
+
+// Expand a row
+When(
+  "User expands the {string} row",
+  async function (this: CustomWorld, name: string) {
+    await this.basePage.expandRow(name);
+  },
+);
+
+// Read module data from JSON file, scoped by country
+Given(
+  "User loads module data from {string} for country {string}",
+  async function (this: CustomWorld, filePath: string, countryCode: string) {
+    this.moduleData = JSON.parse(fs.readFileSync(filePath, "utf-8"))[
+      countryCode
+    ];
+  },
+);
+
+// Verify items of a row from loaded JSON
+Then(
+  "User verifies the items of {string} are visible",
+  async function (this: CustomWorld, name: string) {
+    for (const item of this.moduleData[name]) {
+      await this.basePage.verifyText(item, "visible");
+    }
+  },
+);
+
+// Step verify multiple texts are visible
+Then(
+  "User verifies the following texts are visible:",
+  async function (this: CustomWorld, table: DataTable) {
+    const texts = table.raw().flat();
+    for (const text of texts) {
+      await this.basePage.verifyText(text, "visible");
+    }
+  },
+);
