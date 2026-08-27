@@ -37,8 +37,11 @@ export class BaseLocator {
   selectcheckbox = (checkbox: string) =>
     this.page.locator(`xpath=(//span[normalize-space()='${checkbox}'])`);
 
-  expandRow = (name: string) =>
+  text = (text: string) => this.page.getByText(text, { exact: true }).first();
+
+  expandRowButton = (name: string) =>
     this.page.locator("h3", { hasText: name }).locator("button[aria-expanded]");
 
-  text = (text: string) => this.page.getByText(text, { exact: true }).first();
+  expandRowToggle = (name: string) =>
+    this.page.locator("h3", { hasText: name }).locator("svg.lucide-chevron-down");
 }

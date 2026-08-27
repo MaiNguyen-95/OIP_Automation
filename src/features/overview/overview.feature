@@ -5,7 +5,8 @@ Feature: Overview Page
 
     @verifytextOverview
     Scenario: User verifies all major sections are visible on the Overview page
-        Given User is on the "/overview" page
+        Given I select tenant "<tenant>" when clicking "Flag of Ghana"
+        Given User is on the "overview" page
         Then User verifies the following texts are visible:
             | Kafka Monitor       |
             | TOTAL TOPICS        |
@@ -18,3 +19,6 @@ Feature: Overview Page
             | Consumer Status     |
             | Issue               |
             | Daily Job Summaries |
+        Examples:
+            | tenant   |
+            | Tanzania |
