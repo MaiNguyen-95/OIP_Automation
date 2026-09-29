@@ -34,11 +34,10 @@ export async function getLatestMagicLinkFromOutlook(
 
   let latestMailItem: any = null;
   let latestTime = 0;
-  const maxWait = 30000; // tối đa 30s polling
+  const maxWait = 30000;
   const startTime = Date.now();
 
   while (Date.now() - startTime < maxWait) {
-    // Lấy tất cả mail có "log In" trong subject
     const mailRows = await page
       .locator("div[role='row']")
       .evaluateAll((rows) => {
@@ -76,7 +75,7 @@ export async function getLatestMagicLinkFromOutlook(
 
   if (!latestMailItem) {
     await context.close();
-    throw new Error("Không tìm thấy mail login mới nhất");
+    throw new Error("The latest login email could not be found");
   }
 
   await latestMailItem.click();
@@ -87,7 +86,7 @@ export async function getLatestMagicLinkFromOutlook(
     .getAttribute("href");
   if (!magicLink) {
     await context.close();
-    throw new Error("Không tìm thấy magic link");
+    throw new Error("The magic link could not be found");
   }
 
   await context.close();
