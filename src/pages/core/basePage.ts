@@ -47,13 +47,13 @@ export class BasePage {
   async verifyText(text: string, state: string): Promise<void> {
     const locator = this.locator.text(text);
     if (state === "visible") {
-      await expect(locator).toBeVisible();
+      await expect(locator).toBeVisible({ timeout });
     } else if (state === "hidden") {
-      await expect(locator).toBeHidden();
+      await expect(locator).toBeHidden({ timeout });
     } else if (state === "attached") {
-      await expect(locator).toBeAttached();
+      await expect(locator).toBeAttached({ timeout });
     } else if (state === "detached") {
-      await expect(locator).not.toBeAttached();
+      await expect(locator).not.toBeAttached({ timeout });
     } else {
       throw new Error(`Unsupported state: ${state}`);
     }
