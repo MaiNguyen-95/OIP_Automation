@@ -8,15 +8,15 @@
       "Admin Approve Shop"
     ],
     "YC - Home Screen": ["Home loading"],
-    "YC - B2C Fulfill Order (Assisted Order)": [
-      "Browser & Cart",
-      "Discount & Checkout"
-    ],
     "YC - B2C Fulfill Order (Normal Order)": [
       "Decline Order",
       "Review & Accept Order",
       "Checkout & Scan QR",
       "Fulfill Order"
+    ],
+    "YC - B2C Fulfill Order (Assisted Order)": [
+      "Browser & Cart",
+      "Discount & Checkout"
     ],
     "YC - B2B Fulfill Order (Seller)": [
       "Seller review & Confirmation",
@@ -34,17 +34,30 @@
       "Version Update Consent",
       "Privacy and Legal Settings"
     ],
+    "YC - B2B Temporal Ordering": [
+      "FulfillOrderWorkflow",
+      "UpdateOrderEventWorkflow",
+      "CreateOrderWorkflow",
+      "CreateOrderEventWorkflow",
+      "EditOrderWorkflow",
+      "CancelOrderWorkflow",
+      "RejectOrderWorkflow"
+    ],
+    "YC - Assisted Order Temporal": [
+      "AssistedOrderWorkflow",
+      "UpdateOrderEventWorkflow"
+    ],
 
-    "YFC - Identity Management": ["Identity"],
     "YFC - Identity Management (Farmcare Shop Web)": ["Identity", "Signup"],
+    "YFC - Identity Management": ["Identity"],
     "YFC - Home Screen": ["Home Widgets"],
     "YFC - Home Screen (Farmcare Shop Web)": ["Home Page"],
-    "YFC - B2C Ordering (Via FC App)": ["FC App", "Stores Near You"],
     "YFC - B2C Ordering (Farmcare Shop Web)": [
       "Farmcare Shop Webview",
       "Buy Products",
       "Cart And Checkout"
     ],
+    "YFC - B2C Ordering (Via FC App)": ["FC App", "Stores Near You"],
     "YFC - Fertiliser Calculator": ["Fertiliser Calculator", "Saved Plans"],
     "YFC - My Orders": ["My Orders", "Received Orders", "Contact Support"],
     "YFC - Weather": ["Weather"],
@@ -59,6 +72,15 @@
       "Privacy and Legal Settings"
     ],
     "YFC - Newsfeed Management": ["Newsfeed"],
+    "YFC - B2C Temporal Ordering": [
+      "FulfillOrderWorkflow",
+      "UpdateOrderEventWorkflow",
+      "CreateOrderWorkflow",
+      "CreateOrderEventWorkflow",
+      "CancelOrderWorkflow",
+      "OrderDeliveryWorkflow",
+      "OrderDeliveryEventWorkflow"
+    ],
 
     "AP - User Management": [
       "Add New User",
@@ -77,16 +99,766 @@
     ],
 
     "Heartbeat - Heartbeat": ["OTP Check"],
-
     "Unreported Error - Unreported Error": ["Unreported Error"]
   },
-  "gh": {},
-  "in": {},
-  "id": {},
-  "ke": {},
-  "my": {},
-  "ph": {},
-  "th": {},
-  "ug": {},
-  "vn": {}
+
+  "gh": {
+    "YC - Identity Management": [
+      "Welcome",
+      "TnC",
+      "Login",
+      "Signup",
+      "Admin Approve Shop"
+    ],
+    "YC - Home Screen": ["Home loading"],
+    "YC - Campaign manager": ["Campaign listing & detail"],
+    "YC - Consent (YC app)": [
+      "Registration Consent",
+      "Version Update Consent",
+      "Privacy and Legal Settings"
+    ],
+
+    "AP - User Management": [
+      "Add New User",
+      "Login via SSO",
+      "Active Admin User",
+      "Deactive Admin User",
+      "Edit User"
+    ],
+    "AP - Store": [
+      "Deactive Store",
+      "Edit Store",
+      "Store Transaction",
+      "Store Inventory",
+      "Approve Store",
+      "Reactive Store"
+    ],
+
+    "Heartbeat - Heartbeat": ["OTP Check"],
+    "Unreported Error - Unreported Error": ["Unreported Error"]
+  },
+
+  "in": {
+    "YC - Identity Management": [
+      "Welcome",
+      "TnC",
+      "Login",
+      "Signup",
+      "Admin Approve Shop"
+    ],
+    "YC - Home Screen": ["Home loading"],
+    "YC - B2C Fulfill Order (Normal Order)": [
+      "Decline Order",
+      "Review & Accept Order",
+      "Checkout & Scan QR",
+      "Fulfill Order"
+    ],
+    "YC - B2C Fulfill Order (Assisted Order)": [
+      "Browser & Cart",
+      "Discount & Checkout"
+    ],
+    "YC - B2B Fulfill Order (Seller)": [
+      "Seller review & Confirmation",
+      "Decline Order",
+      "Scanning & Finalize"
+    ],
+    "YC - B2B Fulfill Order (Buyer)": [
+      "Shop & Product selection",
+      "Cart operations"
+    ],
+    "YC - Campaign manager": ["Campaign listing & detail"],
+    "YC - Order Listing": ["Accepted Orders", "Past Orders"],
+    "YC - Consent (YC app)": [
+      "Registration Consent",
+      "Version Update Consent",
+      "Privacy and Legal Settings"
+    ],
+    "YC - B2B Temporal Ordering": [
+      "FulfillOrderWorkflow",
+      "UpdateOrderEventWorkflow",
+      "CreateOrderWorkflow",
+      "CreateOrderEventWorkflow",
+      "EditOrderWorkflow",
+      "CancelOrderWorkflow",
+      "RejectOrderWorkflow"
+    ],
+    "YC - Assisted Order Temporal": [
+      "AssistedOrderWorkflow",
+      "UpdateOrderEventWorkflow"
+    ],
+
+    "YFC - Identity Management (Farmcare Shop Web)": ["Identity", "Signup"],
+    "YFC - Identity Management": ["Identity"],
+    "YFC - Home Screen": ["Home Widgets"],
+    "YFC - Home Screen (Farmcare Shop Web)": ["Home Page"],
+    "YFC - B2C Ordering (Farmcare Shop Web)": [
+      "Farmcare Shop Webview",
+      "Buy Products",
+      "Cart And Checkout"
+    ],
+    "YFC - B2C Ordering (Via FC App)": ["FC App", "Stores Near You"],
+    "YFC - Fertiliser Calculator": ["Fertiliser Calculator", "Saved Plans"],
+    "YFC - My Orders": ["My Orders", "Received Orders", "Contact Support"],
+    "YFC - Weather": ["Weather"],
+    "YFC - Consent (Farmcare Shop Web)": [
+      "Registration Consent",
+      "Version Update Consent",
+      "Privacy and Legal Settings"
+    ],
+    "YFC - Consent": [
+      "Registration Consent",
+      "Version Update Consent",
+      "Privacy and Legal Settings"
+    ],
+    "YFC - Newsfeed Management": ["Newsfeed"],
+    "YFC - B2C Temporal Ordering": [
+      "FulfillOrderWorkflow",
+      "UpdateOrderEventWorkflow",
+      "CreateOrderWorkflow",
+      "CreateOrderEventWorkflow",
+      "CancelOrderWorkflow",
+      "OrderDeliveryWorkflow",
+      "OrderDeliveryEventWorkflow"
+    ],
+
+    "AP - User Management": [
+      "Add New User",
+      "Login via SSO",
+      "Active Admin User",
+      "Deactive Admin User",
+      "Edit User"
+    ],
+    "AP - Store": [
+      "Deactive Store",
+      "Edit Store",
+      "Store Transaction",
+      "Store Inventory",
+      "Approve Store",
+      "Reactive Store"
+    ],
+
+    "Heartbeat - Heartbeat": ["OTP Check"],
+    "Unreported Error - Unreported Error": ["Unreported Error"]
+  },
+
+  "id": {
+    "YC - Identity Management": [
+      "Welcome",
+      "TnC",
+      "Login",
+      "Signup",
+      "Admin Approve Shop"
+    ],
+    "YC - Home Screen": ["Home loading"],
+    "YC - B2C Fulfill Order (Normal Order)": [
+      "Decline Order",
+      "Review & Accept Order",
+      "Checkout & Scan QR",
+      "Fulfill Order"
+    ],
+    "YC - B2C Fulfill Order (Assisted Order)": [
+      "Browser & Cart",
+      "Discount & Checkout"
+    ],
+    "YC - Campaign manager": ["Campaign listing & detail"],
+    "YC - Order Listing": ["Accepted Orders", "Past Orders"],
+    "YC - Consent (YC app)": [
+      "Registration Consent",
+      "Version Update Consent",
+      "Privacy and Legal Settings"
+    ],
+    "YC - ID - IDC Stock Sync": ["Stock Sync Fulfillment"],
+    "YC - Assisted Order Temporal": [
+      "AssistedOrderWorkflow",
+      "UpdateOrderEventWorkflow"
+    ],
+
+    "YFC - Identity Management (Farmcare Shop Web)": ["Identity", "Signup"],
+    "YFC - Identity Management": ["Identity"],
+    "YFC - Home Screen": ["Home Widgets"],
+    "YFC - Home Screen (Farmcare Shop Web)": ["Home Page"],
+    "YFC - B2C Ordering (Farmcare Shop Web)": [
+      "Farmcare Shop Webview",
+      "Buy Products",
+      "Cart And Checkout"
+    ],
+    "YFC - B2C Ordering (Via FC App)": ["FC App", "Stores Near You"],
+    "YFC - Campaign manager": ["Campaign listing & detail"],
+    "YFC - Fertiliser Calculator": ["Fertiliser Calculator", "Saved Plans"],
+    "YFC - My Orders": ["My Orders", "Received Orders", "Contact Support"],
+    "YFC - Weather": ["Weather"],
+    "YFC - Consent (Farmcare Shop Web)": [
+      "Registration Consent",
+      "Version Update Consent",
+      "Privacy and Legal Settings"
+    ],
+    "YFC - Consent": [
+      "Registration Consent",
+      "Version Update Consent",
+      "Privacy and Legal Settings"
+    ],
+    "YFC - Newsfeed Management": ["Newsfeed"],
+    "YFC - Farmer Service": [
+      "Catalog Service",
+      "Landing Service",
+      "Booking Form",
+      "Offering Service",
+      "Cart & Checkout",
+      "My Services",
+      "Cancel Booking",
+      "Modify Booking",
+      "Fulfilled Service",
+      "Service Rating",
+      "Report Issue"
+    ],
+    "YFC - Farmer Loyalty": ["ID Compliance"],
+    "YFC - B2C Temporal Ordering": [
+      "FulfillOrderWorkflow",
+      "UpdateOrderEventWorkflow",
+      "CreateOrderWorkflow",
+      "CreateOrderEventWorkflow",
+      "CancelOrderWorkflow",
+      "OrderDeliveryWorkflow",
+      "OrderDeliveryEventWorkflow"
+    ],
+
+    "YFF - Farmer Service": ["Request Service Orders", "My Schedules"],
+
+    "AP - User Management": [
+      "Add New User",
+      "Login via SSO",
+      "Active Admin User",
+      "Deactive Admin User",
+      "Edit User"
+    ],
+    "AP - Store": [
+      "Deactive Store",
+      "Edit Store",
+      "Store Transaction",
+      "Store Inventory",
+      "Approve Store",
+      "Reactive Store"
+    ],
+    "AP - Farmer Service": [
+      "Service Orders",
+      "Service Order Detail",
+      "Assign Agronomist",
+      "Reject Service Order",
+      "Complete Service"
+    ],
+
+    "Heartbeat - Heartbeat": ["OTP Check"],
+    "Unreported Error - Unreported Error": ["Unreported Error"]
+  },
+
+  "ke": {
+    "YC - Identity Management": [
+      "Welcome",
+      "TnC",
+      "Login",
+      "Signup",
+      "Admin Approve Shop"
+    ],
+    "YC - Home Screen": ["Home loading"],
+    "YC - B2C Fulfill Order (Normal Order)": [
+      "Decline Order",
+      "Review & Accept Order",
+      "Checkout & Scan QR",
+      "Fulfill Order"
+    ],
+    "YC - B2C Fulfill Order (Assisted Order)": [
+      "Browser & Cart",
+      "Discount & Checkout"
+    ],
+    "YC - B2B Fulfill Order (Seller)": [
+      "Seller review & Confirmation",
+      "Decline Order",
+      "Scanning & Finalize"
+    ],
+    "YC - B2B Fulfill Order (Buyer)": [
+      "Shop & Product selection",
+      "Cart operations"
+    ],
+    "YC - Campaign manager": ["Campaign listing & detail"],
+    "YC - Order Listing": ["Accepted Orders", "Past Orders"],
+    "YC - Consent (YC app)": [
+      "Registration Consent",
+      "Version Update Consent",
+      "Privacy and Legal Settings"
+    ],
+    "YC - B2B Temporal Ordering": [
+      "FulfillOrderWorkflow",
+      "UpdateOrderEventWorkflow",
+      "CreateOrderWorkflow",
+      "CreateOrderEventWorkflow",
+      "EditOrderWorkflow",
+      "CancelOrderWorkflow",
+      "RejectOrderWorkflow"
+    ],
+    "YC - Assisted Order Temporal": [
+      "AssistedOrderWorkflow",
+      "UpdateOrderEventWorkflow"
+    ],
+
+    "YFC - Identity Management (Farmcare Shop Web)": ["Identity", "Signup"],
+    "YFC - Identity Management": ["Identity"],
+    "YFC - Home Screen": ["Home Widgets"],
+    "YFC - Home Screen (Farmcare Shop Web)": ["Home Page"],
+    "YFC - B2C Ordering (Farmcare Shop Web)": [
+      "Farmcare Shop Webview",
+      "Buy Products",
+      "Cart And Checkout"
+    ],
+    "YFC - B2C Ordering (Via FC App)": ["FC App", "Stores Near You"],
+    "YFC - Fertiliser Calculator": ["Fertiliser Calculator", "Saved Plans"],
+    "YFC - My Orders": ["My Orders", "Received Orders", "Contact Support"],
+    "YFC - Weather": ["Weather"],
+    "YFC - Consent (Farmcare Shop Web)": [
+      "Registration Consent",
+      "Version Update Consent",
+      "Privacy and Legal Settings"
+    ],
+    "YFC - Consent": [
+      "Registration Consent",
+      "Version Update Consent",
+      "Privacy and Legal Settings"
+    ],
+    "YFC - Newsfeed Management": ["Newsfeed"],
+    "YFC - B2C Temporal Ordering": [
+      "FulfillOrderWorkflow",
+      "UpdateOrderEventWorkflow",
+      "CreateOrderWorkflow",
+      "CreateOrderEventWorkflow",
+      "CancelOrderWorkflow",
+      "OrderDeliveryWorkflow",
+      "OrderDeliveryEventWorkflow"
+    ],
+
+    "AP - User Management": [
+      "Add New User",
+      "Login via SSO",
+      "Active Admin User",
+      "Deactive Admin User",
+      "Edit User"
+    ],
+    "AP - Store": [
+      "Deactive Store",
+      "Edit Store",
+      "Store Transaction",
+      "Store Inventory",
+      "Approve Store",
+      "Reactive Store"
+    ],
+
+    "Heartbeat - Heartbeat": ["OTP Check"],
+    "Unreported Error - Unreported Error": ["Unreported Error"]
+  },
+
+  "my": {
+    "YC - Identity Management": [
+      "Welcome",
+      "TnC",
+      "Login",
+      "Signup",
+      "Admin Approve Shop"
+    ],
+    "YC - Home Screen": ["Home loading"],
+    "YC - B2C Fulfill Order (Normal Order)": [
+      "Decline Order",
+      "Review & Accept Order",
+      "Checkout & Scan QR",
+      "Fulfill Order"
+    ],
+    "YC - B2C Fulfill Order (Assisted Order)": [
+      "Browser & Cart",
+      "Discount & Checkout"
+    ],
+    "YC - Campaign manager": ["Campaign listing & detail"],
+    "YC - Order Listing": ["Accepted Orders", "Past Orders"],
+    "YC - Consent (YC app)": [
+      "Registration Consent",
+      "Version Update Consent",
+      "Privacy and Legal Settings"
+    ],
+    "YC - Assisted Order Temporal": [
+      "AssistedOrderWorkflow",
+      "UpdateOrderEventWorkflow"
+    ],
+
+    "YFC - Identity Management (Farmcare Shop Web)": ["Identity", "Signup"],
+    "YFC - Identity Management": ["Identity"],
+    "YFC - Home Screen": ["Home Widgets"],
+    "YFC - Home Screen (Farmcare Shop Web)": ["Home Page"],
+    "YFC - B2C Ordering (Farmcare Shop Web)": [
+      "Farmcare Shop Webview",
+      "Buy Products",
+      "Cart And Checkout"
+    ],
+    "YFC - B2C Ordering (Via FC App)": ["FC App", "Stores Near You"],
+    "YFC - Campaign manager": ["Campaign listing & detail"],
+    "YFC - Fertiliser Calculator": ["Fertiliser Calculator", "Saved Plans"],
+    "YFC - My Orders": ["My Orders", "Received Orders", "Contact Support"],
+    "YFC - Weather": ["Weather"],
+    "YFC - Consent (Farmcare Shop Web)": [
+      "Registration Consent",
+      "Version Update Consent",
+      "Privacy and Legal Settings"
+    ],
+    "YFC - Consent": [
+      "Registration Consent",
+      "Version Update Consent",
+      "Privacy and Legal Settings"
+    ],
+    "YFC - Newsfeed Management": ["Newsfeed"],
+    "YFC - B2C Temporal Ordering": [
+      "FulfillOrderWorkflow",
+      "UpdateOrderEventWorkflow",
+      "CreateOrderWorkflow",
+      "CreateOrderEventWorkflow",
+      "CancelOrderWorkflow",
+      "OrderDeliveryWorkflow",
+      "OrderDeliveryEventWorkflow"
+    ],
+
+    "AP - User Management": [
+      "Add New User",
+      "Login via SSO",
+      "Active Admin User",
+      "Deactive Admin User",
+      "Edit User"
+    ],
+    "AP - Store": [
+      "Deactive Store",
+      "Edit Store",
+      "Store Transaction",
+      "Store Inventory",
+      "Approve Store",
+      "Reactive Store"
+    ],
+
+    "Heartbeat - Heartbeat": ["OTP Check"],
+    "Unreported Error - Unreported Error": ["Unreported Error"]
+  },
+
+  "ph": {
+    "YC - Identity Management": [
+      "Welcome",
+      "TnC",
+      "Login",
+      "Signup",
+      "Admin Approve Shop"
+    ],
+    "YC - Home Screen": ["Home loading"],
+    "YC - Consent (YC app)": [
+      "Registration Consent",
+      "Version Update Consent",
+      "Privacy and Legal Settings"
+    ],
+
+    "AP - User Management": [
+      "Add New User",
+      "Login via SSO",
+      "Active Admin User",
+      "Deactive Admin User",
+      "Edit User"
+    ],
+    "AP - Store": [
+      "Deactive Store",
+      "Edit Store",
+      "Store Transaction",
+      "Store Inventory",
+      "Approve Store",
+      "Reactive Store"
+    ],
+
+    "Heartbeat - Heartbeat": ["OTP Check"],
+    "Unreported Error - Unreported Error": ["Unreported Error"]
+  },
+
+  "th": {
+    "YC - Identity Management": [
+      "Welcome",
+      "TnC",
+      "Login",
+      "Signup",
+      "Admin Approve Shop"
+    ],
+    "YC - Home Screen": ["Home loading"],
+    "YC - B2C Fulfill Order (Normal Order)": [
+      "Decline Order",
+      "Review & Accept Order",
+      "Checkout & Scan QR",
+      "Fulfill Order"
+    ],
+    "YC - B2C Fulfill Order (Assisted Order)": [
+      "Browser & Cart",
+      "Discount & Checkout"
+    ],
+    "YC - B2B Fulfill Order (Seller)": [
+      "Seller review & Confirmation",
+      "Decline Order",
+      "Scanning & Finalize"
+    ],
+    "YC - B2B Fulfill Order (Buyer)": [
+      "Shop & Product selection",
+      "Cart operations"
+    ],
+    "YC - Campaign manager": ["Campaign listing & detail"],
+    "YC - Dealer Ordering System": [
+      "Yara Orders",
+      "Placing Order",
+      "Customer Support",
+      "Dealer Cancel Order",
+      "Dealer Orders",
+      "Support",
+      "Cancel Dealer Order",
+      "Retry Dealer Order",
+      "Admin Notifications",
+      "Sync Order",
+      "YAPIE Products Sync"
+    ],
+    "YC - Order Listing": ["Accepted Orders", "Past Orders"],
+    "YC - Consent (YC app)": [
+      "Registration Consent",
+      "Version Update Consent",
+      "Privacy and Legal Settings"
+    ],
+    "YC - B2B Temporal Ordering": [
+      "FulfillOrderWorkflow",
+      "UpdateOrderEventWorkflow",
+      "CreateOrderWorkflow",
+      "CreateOrderEventWorkflow",
+      "EditOrderWorkflow",
+      "CancelOrderWorkflow",
+      "RejectOrderWorkflow"
+    ],
+    "YC - Assisted Order Temporal": [
+      "AssistedOrderWorkflow",
+      "UpdateOrderEventWorkflow"
+    ],
+
+    "YFC - Identity Management (Farmcare Shop Web)": ["Identity", "Signup"],
+    "YFC - Identity Management": ["Identity"],
+    "YFC - Home Screen": ["Home Widgets"],
+    "YFC - Home Screen (Farmcare Shop Web)": ["Home Page"],
+    "YFC - B2C Ordering (Farmcare Shop Web)": [
+      "Farmcare Shop Webview",
+      "Buy Products",
+      "Cart And Checkout"
+    ],
+    "YFC - B2C Ordering (Via FC App)": ["FC App", "Stores Near You"],
+    "YFC - Campaign manager": ["Campaign listing & detail"],
+    "YFC - Fertiliser Calculator": ["Fertiliser Calculator", "Saved Plans"],
+    "YFC - My Orders": ["My Orders", "Received Orders", "Contact Support"],
+    "YFC - Weather": ["Weather"],
+    "YFC - Consent (Farmcare Shop Web)": [
+      "Registration Consent",
+      "Version Update Consent",
+      "Privacy and Legal Settings"
+    ],
+    "YFC - Consent": [
+      "Registration Consent",
+      "Version Update Consent",
+      "Privacy and Legal Settings"
+    ],
+    "YFC - Newsfeed Management": ["Newsfeed"],
+    "YFC - B2C Temporal Ordering": [
+      "FulfillOrderWorkflow",
+      "UpdateOrderEventWorkflow",
+      "CreateOrderWorkflow",
+      "CreateOrderEventWorkflow",
+      "CancelOrderWorkflow",
+      "OrderDeliveryWorkflow",
+      "OrderDeliveryEventWorkflow"
+    ],
+
+    "AP - User Management": [
+      "Add New User",
+      "Login via SSO",
+      "Active Admin User",
+      "Deactive Admin User",
+      "Edit User"
+    ],
+    "AP - Dealers": [
+      "View Dealers",
+      "Dealer Profile",
+      "Dealer User",
+      "Dealer Organisation",
+      "Dealer Coupons",
+      "Dealer Referrals",
+      "Dealer Audit Logs",
+      "Dealer Purchase Transactions",
+      "Dealer Redemption Transactions",
+      "Dealer Order History",
+      "Dealer Store Inventory",
+      "Create Dealer",
+      "Update Dealer Points",
+      "Edit Dealer Profile",
+      "Activate Dealer"
+    ],
+    "AP - Subdealers": [
+      "Subdealer List",
+      "Shop Approval",
+      "Deactivate Shop",
+      "Reactivate",
+      "Subdealer Profile",
+      "Points Adjustment",
+      "Update Subdealer Profile",
+      "Store Users",
+      "About Organisation",
+      "Coupons",
+      "Audit Log",
+      "Purchase Transaction History",
+      "Redemption Transaction History",
+      "Shop Documents",
+      "Approve Documents",
+      "Reject Documents",
+      "Order History",
+      "Notes",
+      "Store Inventory"
+    ],
+
+    "Heartbeat - Heartbeat": ["OTP Check"],
+    "Unreported Error - Unreported Error": ["Unreported Error"]
+  },
+
+  "ug": {
+    "YC - Identity Management": [
+      "Welcome",
+      "TnC",
+      "Login",
+      "Signup",
+      "Admin Approve Shop"
+    ],
+    "YC - Home Screen": ["Home loading"],
+    "YC - B2B Fulfill Order (Seller)": [
+      "Seller review & Confirmation",
+      "Decline Order",
+      "Scanning & Finalize"
+    ],
+    "YC - B2B Fulfill Order (Buyer)": [
+      "Shop & Product selection",
+      "Cart operations"
+    ],
+    "YC - Campaign manager": ["Campaign listing & detail"],
+    "YC - Order Listing": ["Accepted Orders", "Past Orders"],
+    "YC - Consent (YC app)": [
+      "Registration Consent",
+      "Version Update Consent",
+      "Privacy and Legal Settings"
+    ],
+    "YC - B2B Temporal Ordering": [
+      "FulfillOrderWorkflow",
+      "UpdateOrderEventWorkflow",
+      "CreateOrderWorkflow",
+      "CreateOrderEventWorkflow",
+      "EditOrderWorkflow",
+      "CancelOrderWorkflow",
+      "RejectOrderWorkflow"
+    ],
+
+    "AP - User Management": [
+      "Add New User",
+      "Login via SSO",
+      "Active Admin User",
+      "Deactive Admin User",
+      "Edit User"
+    ],
+    "AP - Store": [
+      "Deactive Store",
+      "Edit Store",
+      "Store Transaction",
+      "Store Inventory",
+      "Approve Store",
+      "Reactive Store"
+    ],
+
+    "Heartbeat - Heartbeat": ["OTP Check"],
+    "Unreported Error - Unreported Error": ["Unreported Error"]
+  },
+
+  "vn": {
+    "YC - Identity Management": [
+      "Welcome",
+      "TnC",
+      "Login",
+      "Signup",
+      "Admin Approve Shop"
+    ],
+    "YC - Home Screen": ["Home loading"],
+    "YC - B2C Fulfill Order (Normal Order)": [
+      "Decline Order",
+      "Review & Accept Order",
+      "Checkout & Scan QR",
+      "Fulfill Order"
+    ],
+    "YC - B2C Fulfill Order (Assisted Order)": [
+      "Browser & Cart",
+      "Discount & Checkout"
+    ],
+    "YC - Campaign manager": ["Campaign listing & detail"],
+    "YC - Order Listing": ["Accepted Orders", "Past Orders"],
+    "YC - Consent (YC app)": [
+      "Registration Consent",
+      "Version Update Consent",
+      "Privacy and Legal Settings"
+    ],
+    "YC - Assisted Order Temporal": [
+      "AssistedOrderWorkflow",
+      "UpdateOrderEventWorkflow"
+    ],
+
+    "YFC - Identity Management (Farmcare Shop Web)": ["Identity", "Signup"],
+    "YFC - Identity Management": ["Identity"],
+    "YFC - Home Screen": ["Home Widgets"],
+    "YFC - Home Screen (Farmcare Shop Web)": ["Home Page"],
+    "YFC - B2C Ordering (Farmcare Shop Web)": [
+      "Farmcare Shop Webview",
+      "Buy Products",
+      "Cart And Checkout"
+    ],
+    "YFC - B2C Ordering (Via FC App)": ["FC App", "Stores Near You"],
+    "YFC - Fertiliser Calculator": ["Fertiliser Calculator", "Saved Plans"],
+    "YFC - My Orders": ["My Orders", "Received Orders", "Contact Support"],
+    "YFC - Weather": ["Weather"],
+    "YFC - Consent (Farmcare Shop Web)": [
+      "Registration Consent",
+      "Version Update Consent",
+      "Privacy and Legal Settings"
+    ],
+    "YFC - Consent": [
+      "Registration Consent",
+      "Version Update Consent",
+      "Privacy and Legal Settings"
+    ],
+    "YFC - Newsfeed Management": ["Newsfeed"],
+    "YFC - B2C Temporal Ordering": [
+      "FulfillOrderWorkflow",
+      "UpdateOrderEventWorkflow",
+      "CreateOrderWorkflow",
+      "CreateOrderEventWorkflow",
+      "CancelOrderWorkflow",
+      "OrderDeliveryWorkflow",
+      "OrderDeliveryEventWorkflow"
+    ],
+
+    "AP - User Management": [
+      "Add New User",
+      "Login via SSO",
+      "Active Admin User",
+      "Deactive Admin User",
+      "Edit User"
+    ],
+    "AP - Store": [
+      "Deactive Store",
+      "Edit Store",
+      "Store Transaction",
+      "Store Inventory",
+      "Approve Store",
+      "Reactive Store"
+    ],
+
+    "Heartbeat - Heartbeat": ["OTP Check"],
+    "Unreported Error - Unreported Error": ["Unreported Error"]
+  }
 }
