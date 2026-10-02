@@ -76,7 +76,7 @@ export async function getLatestMagicLinkFromOutlook(
 
   if (!latestMailItem) {
     await context.close();
-    throw new Error("Không tìm thấy mail login mới nhất");
+    throw new Error("The latest login email could not be found");
   }
 
   await latestMailItem.click();
@@ -87,7 +87,7 @@ export async function getLatestMagicLinkFromOutlook(
     .getAttribute("href");
   if (!magicLink) {
     await context.close();
-    throw new Error("Không tìm thấy magic link");
+    throw new Error("The magic link could not be found");
   }
 
   await context.close();
