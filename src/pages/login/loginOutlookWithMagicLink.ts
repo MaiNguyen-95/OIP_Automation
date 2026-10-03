@@ -69,7 +69,6 @@ export async function getLatestMagicLinkFromOutlook(
 
     if (latestMailItem) break;
 
-    // Chưa có mail mới → refresh inbox
     await page.reload();
     await page.waitForTimeout(2000);
   }
