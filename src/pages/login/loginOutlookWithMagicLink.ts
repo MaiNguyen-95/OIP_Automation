@@ -34,10 +34,11 @@ export async function getLatestMagicLinkFromOutlook(
 
   let latestMailItem: any = null;
   let latestTime = 0;
-  const maxWait = 30000;
+  const maxWait = 30000; // tối đa 30s polling
   const startTime = Date.now();
 
   while (Date.now() - startTime < maxWait) {
+    // Lấy tất cả mail có "log In" trong subject
     const mailRows = await page
       .locator("div[role='row']")
       .evaluateAll((rows) => {

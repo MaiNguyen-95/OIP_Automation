@@ -5,6 +5,7 @@ Feature: Dashboard Overview
 
     @verifytextdashboardOverview
     Scenario: User verifies all sections are visible on the Dashboard page
+        Given I select tenant "<tenant>" when clicking "Flag of Ghana"
         Given User is on the "dashboard" page
         Then User verifies the following texts are visible:
             | Overall Availability: |
@@ -21,3 +22,6 @@ Feature: Dashboard Overview
             | Passing               |
             | Degraded              |
             | Failed                |
+        Examples:
+            | tenant   |
+            | Tanzania |

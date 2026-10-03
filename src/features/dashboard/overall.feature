@@ -5,6 +5,7 @@ Feature: Overall Availability
 
     @verifyTextOverallAvailability
     Scenario: User verifies text of Overall Availability section
+        Given I select tenant "<tenant>" when clicking "Flag of Ghana"
         Given User is on the "/dashboard" page
         Then User verifies the following texts are visible:
             | Overall Availability: |
@@ -13,3 +14,6 @@ Feature: Overall Availability
             | Last 24h:             |
             | Last 7d:              |
             | Last 30d:             |
+        Examples:
+            | tenant   |
+            | Tanzania |
