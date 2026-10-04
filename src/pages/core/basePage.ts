@@ -143,6 +143,11 @@ export class BasePage {
   async verifyDateRange(dateRange: string): Promise<void> {
     await expect(this.locator.text(dateRange)).toBeVisible();
   }
+
+  async verifyTextboxValue(name: string, value: string): Promise<void> {
+    const textbox = this.locator.textbox(name);
+    await expect(textbox).toHaveValue(value);
+  }
 }
 
 //#endregion

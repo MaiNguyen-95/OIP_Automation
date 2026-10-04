@@ -146,3 +146,10 @@ Then(
     }
   },
 );
+
+Then(
+  "User verifies the {string} field has value {string}",
+  async function (this: CustomWorld, name: string, value: string) {
+    await this.basePage.verifyTextboxValue(name, value);
+  },
+);
