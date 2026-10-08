@@ -6,6 +6,7 @@ import { chromium, Browser } from "@playwright/test";
 import { CustomWorld } from "./world";
 import { BaseDashboard } from "../pages/dashboard/dashboardPage";
 import { BasePage } from "../pages/core/basePage";
+import { IncidentPage } from "../pages/incidents/incidentPage";
 
 let browser: Browser;
 
@@ -27,6 +28,7 @@ Before(async function (this: CustomWorld) {
 
   this.baseDashboard = new BaseDashboard(this.page);
   this.basePage = new BasePage(this.page);
+  this.incidentPage = new IncidentPage(this.page);
 });
 
 After(async function (this: CustomWorld) {

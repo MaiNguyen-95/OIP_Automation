@@ -12,19 +12,23 @@ export class BaseLocator {
       .first();
   };
 
-  button = (name: string, index: number = 0) => {
-    return this.page
+  button = (name: string, index?: number) => {
+    const buttons = this.page
       .getByRole("button", { name })
       .or(this.page.locator("button", { hasText: name }))
       .or(this.page.locator("button:visible", { hasText: name }))
-      .or(this.page.locator(`[aria-label="${name}"]`))
-      .nth(index);
+      .or(this.page.locator(`[aria-label="${name}"]`));
+
+    return index === undefined
+      ? buttons.filter({ visible: true }).last()
+      : buttons.nth(index);
   };
 
   link = (name: string) => {
     return this.page
       .getByRole("link", { name })
-      .or(this.page.locator(`[aria-label="${name}"]`));
+      .or(this.page.locator(`[aria-label="${name}"]`))
+      .first();
   };
 
   dropdownlist = (tenant: string) =>
