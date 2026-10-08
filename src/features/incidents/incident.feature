@@ -95,3 +95,114 @@ Feature: Incident
         Examples:
             | page        | button           | popup                  | confirm | text                  | state   |
             | /incidents/ | Mark as Resolved | Mark this as resolved? | Confirm | Marked as resolved by | visible |
+
+    @collapseworkflow
+    Scenario: User collapses and expands the Workflow accordion
+        When User clicks on the "Incident Detail" link
+        Then User is navigated to the "/incidents/" page
+        And User verifies the "<step>" text is "visible"
+        When User clicks on the "<flow>" button
+        Then User verifies the "<step>" text is "hidden"
+        When User clicks on the "<flow>" button
+        Then User verifies the "<step>" text is "visible"
+        Examples:
+            | flow                  | step             |
+            | Unreported Error Flow | Step 2: AppCrash |
+
+    @collapseopenTelemetry
+    Scenario: User collapses and expands the Update accordion
+        When User clicks on the "Incident Detail" link
+        Then User is navigated to the "/incidents/" page
+        And User verifies the "<entry>" text is "visible"
+        When User clicks on the "<section>" button
+        Then User verifies the "<entry>" text is "hidden"
+        When User clicks on the "<section>" button
+        Then User verifies the "<entry>" text is "visible"
+        Examples:
+            | section       | entry                                                                                  |
+            | OpenTelemetry | Unreported Error Unreported Error step 1 operation failed - Unreported error: ApiError |
+
+    @viewstepdetails
+    Scenario: User opens the step details from the Workflow
+        When User clicks on the "Incident Detail" link
+        Then User is navigated to the "/incidents/" page
+        And User verifies the "<step>" text is "visible"
+        When User clicks on the "<button>" button
+        Then User is navigated to the "<page>" page
+        And User verifies the "<text>" text is "<state>"
+        Examples:
+            | step                 | button       | page         | text                                 | state   |
+            | Step 3: HandledError | View Details | /flow-steps/ | Log Details for Step 3: HandledError | visible |
+
+    @jiralink
+    Scenario: User opens the Jira ticket from the incident detail page
+        When User clicks on the "Incident Detail" link
+        Then User is navigated to the "/incidents/" page
+        When User clicks on the "<link>" link
+        Then User verifies the "<text>" text is "<state>"
+        Examples:
+            | link                              | text                  | state   |
+            | View the incident details in Jira | Unreported Error Flow | visible |
+
+    @errorlevelfilter
+    Scenario: User filters the log list by Error Level
+        When User clicks on the "Incident Detail" link
+        Then User is navigated to the "/incidents/" page
+        When User clicks on the "<viewDetails>" button
+        Then User is navigated to the "<page>" page
+        When User opens "<checkbox>" checkbox dropdown with index 1
+        Then User verifies the "<warn>" text is "hidden"
+        And User verifies the "<error>" text is "visible"
+        When User opens "<checkbox>" checkbox dropdown with index 1
+        Then User verifies the "<error>" text is "visible"
+        Examples:
+            | viewDetails  | page         | checkbox    | warn | error |
+            | View Details | /flow-steps/ | Error Level | Warn | Error |
+
+    @selectdate
+    Scenario: User filters the log list by a selected date
+        When User clicks on the "Incident Detail" link
+        Then User is navigated to the "/incidents/" page
+        When User clicks on the "<viewDetails>" button
+        Then User is navigated to the "<page>" page
+        And User verifies the "<placeholder>" text is "visible"
+        When User clicks on the "<placeholder>" button
+        And User clicks on the "<date>" button
+        Then User verifies the "<placeholder>" text is "hidden"
+        And User verifies the "<displayed>" text is "visible"
+        Examples:
+            | viewDetails  | page         | placeholder | date                      | displayed  |
+            | View Details | /flow-steps/ | Select Date | Friday, October 2nd, 2026 | 2026-10-02 |
+
+    @viewlogpopup
+    Scenario: User opens the log detail popup
+        When User clicks on the "Incident Detail" link
+        Then User is navigated to the "/incidents/" page
+        When User clicks on the "<viewDetails>" button
+        Then User is navigated to the "<page>" page
+        When User clicks on the "<view>" button
+        Then User verifies the "<status>" text is "visible"
+        And User verifies the "<summary>" text is "visible"
+        And User verifies the "<technical>" text is "visible"
+        And User verifies the "<showDetails>" text is "visible"
+        Examples:
+            | viewDetails  | page         | view | status          | summary          | technical         | showDetails  |
+            | View Details | /flow-steps/ | View | INCIDENT STATUS | Business Summary | Technical Details | Show details |
+
+    @showhidedetails
+    Scenario: User shows and hides the technical details in the log popup
+        When User clicks on the "Incident Detail" link
+        Then User is navigated to the "/incidents/" page
+        When User clicks on the "<viewDetails>" button
+        Then User is navigated to the "<page>" page
+        When User clicks on the "<view>" button
+        Then User verifies the "<severity>" text is "visible"
+        When User clicks on the "<show>" button
+        Then User verifies the "<show>" text is "hidden"
+        And User verifies the "<hide>" text is "visible"
+        When User clicks on the "<hide>" button
+        Then User verifies the "<hide>" text is "hidden"
+        And User verifies the "<show>" text is "visible"
+        Examples:
+            | viewDetails  | page         | view | severity       | show         | hide         |
+            | View Details | /flow-steps/ | View | Status: Failed | Show details | Hide details |
