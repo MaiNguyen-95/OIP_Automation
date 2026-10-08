@@ -8,7 +8,8 @@ export class BaseLocator {
       .getByRole("textbox", { name })
       .or(this.page.getByLabel(name))
       .or(this.page.getByPlaceholder(name))
-      .or(this.page.locator(`[data-testid="input-${name}"]`));
+      .or(this.page.locator(`[data-testid="input-${name}"]`))
+      .first();
   };
 
   button = (name: string, index?: number) => {
@@ -46,5 +47,8 @@ export class BaseLocator {
   expandRowButton = (name: string) =>
     this.page.locator("h3", { hasText: name }).locator("button[aria-expanded]");
 
-  text = (text: string) => this.page.getByText(text, { exact: true }).first();
+  expandRowToggle = (name: string) =>
+    this.page
+      .locator("h3", { hasText: name })
+      .locator("svg.lucide-chevron-down");
 }
