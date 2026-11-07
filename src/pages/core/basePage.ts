@@ -44,7 +44,11 @@ export class BasePage {
     await this.page.waitForTimeout(3000);
   }
 
-  async verifyText(text: string, state: string): Promise<void> {
+  async verifyText(
+    text: string,
+    state: string,
+    timeout = 10000,
+  ): Promise<void> {
     const locator = this.locator.text(text);
     if (state === "visible") {
       await expect(locator).toBeVisible({ timeout });
@@ -85,10 +89,16 @@ export class BasePage {
   }
 
   async expandRow(name: string) {
-    const row = this.locator.expandRow(name);
-    await row.waitFor({ state: "visible" });
-    await row.click();
-    await this.page.waitForTimeout(1000);
+    const button = this.locator.expandRowButton(name);
+    await button.waitFor({ state: "visible" });
+
+    const isExpanded = await button.getAttribute("aria-expanded");
+    if (isExpanded !== "true") {
+      await this.locator.expandRowToggle(name).click();
+      await expect(button).toHaveAttribute("aria-expanded", "true", {
+        timeout: 10000,
+      });
+    }
   }
 
   async clickTab(tabName: string): Promise<void> {
