@@ -29,16 +29,16 @@ export async function getLatestMagicLinkFromOutlook(
     if (await stayBtn.isVisible({ timeout: 5000 })) await stayBtn.click();
   } catch {}
 
-  // Chờ inbox load
+  // Wait for the inbox to load
   await page.waitForSelector("div[role='main']", { timeout: 60000 });
 
   let latestMailItem: any = null;
   let latestTime = 0;
-  const maxWait = 30000; // tối đa 30s polling
+  const maxWait = 30000; // poll for at most 30s
   const startTime = Date.now();
 
   while (Date.now() - startTime < maxWait) {
-    // Lấy tất cả mail có "log In" trong subject
+    // Take every mail with "log In" in the subject
     const mailRows = await page
       .locator("div[role='row']")
       .evaluateAll((rows) => {
