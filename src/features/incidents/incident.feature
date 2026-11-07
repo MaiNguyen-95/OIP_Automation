@@ -15,14 +15,12 @@ Feature: Incident
 
     @verifystatictext
     Scenario: User verifies static text
-        Then User verifies the "<text>" text is "<state>"
-        Examples:
-            | text              | state   |
-            | DVCS Ops Insights | visible |
-            | Huyen Le          | visible |
-            | huyen.le@yara.com | visible |
-            | Incidents History | visible |
-            | Tue, Aug 11, 2026 | visible |
+        Then User verifies the following texts are visible:
+            | DVCS Ops Insights |
+            | Huyen Le          |
+            | huyen.le@yara.com |
+            | Incidents History |
+            | Tue, Aug 11, 2026 |
 
     @verifytimerange
     Scenario: User verifies time range
@@ -43,24 +41,20 @@ Feature: Incident
 
     @verifyincidentlistdatetime
     Scenario: User verifies incident list date and time
-        Then User verifies the "<text>" text is "<state>"
-        Examples:
-            | text         | state   |
-            | August, 2026 | visible |
-            | 11           | visible |
-            | Tue          | visible |
-            | 04:39 PM     | visible |
+        Then User verifies the following texts are visible:
+            | August, 2026 |
+            | 11           |
+            | Tue          |
+            | 04:39 PM     |
 
     @verifyincidentdetail
     Scenario: User clicks Incident Detail link and verifies the incident detail page
-        When User clicks on the "<link>" link
-        Then User is navigated to the "<page>" page
-        And User verifies the "<text>" text is "<state>"
-        Examples:
-            | link            | page        | text            | state   |
-            | Incident Detail | /incidents/ | Incident Detail | visible |
-            | Incident Detail | /incidents/ | Workflow        | visible |
-            | Incident Detail | /incidents/ | Update          | visible |
+        When User clicks on the "Incident Detail" link
+        Then User is navigated to the "/incidents/" page
+        And User verifies the following texts are visible:
+            | Incident Detail |
+            | Workflow        |
+            | Update          |
 
     @addcomment
     Scenario: User adds a comment to an incident
@@ -151,13 +145,13 @@ Feature: Incident
         When User clicks on the "<viewDetails>" button
         Then User is navigated to the "<page>" page
         When User opens "<checkbox>" checkbox dropdown with index 1
-        Then User verifies the "<warn>" text is "hidden"
-        And User verifies the "<error>" text is "visible"
+        Then User verifies the "Warn" text is "hidden"
+        And User verifies the "Error" text is "visible"
         When User opens "<checkbox>" checkbox dropdown with index 1
-        Then User verifies the "<error>" text is "visible"
+        Then User verifies the "Error" text is "visible"
         Examples:
-            | viewDetails  | page         | checkbox    | warn | error |
-            | View Details | /flow-steps/ | Error Level | Warn | Error |
+            | viewDetails  | page         | checkbox    |
+            | View Details | /flow-steps/ | Error Level |
 
     @selectdate
     Scenario: User filters the log list by a selected date
@@ -181,13 +175,14 @@ Feature: Incident
         When User clicks on the "<viewDetails>" button
         Then User is navigated to the "<page>" page
         When User clicks on the "<view>" button
-        Then User verifies the "<status>" text is "visible"
-        And User verifies the "<summary>" text is "visible"
-        And User verifies the "<technical>" text is "visible"
-        And User verifies the "<showDetails>" text is "visible"
+        Then User verifies the following texts are visible:
+            | INCIDENT STATUS   |
+            | Business Summary  |
+            | Technical Details |
+            | Show details      |
         Examples:
-            | viewDetails  | page         | view | status          | summary          | technical         | showDetails  |
-            | View Details | /flow-steps/ | View | INCIDENT STATUS | Business Summary | Technical Details | Show details |
+            | viewDetails  | page         | view |
+            | View Details | /flow-steps/ | View |
 
     @showhidedetails
     Scenario: User shows and hides the technical details in the log popup
