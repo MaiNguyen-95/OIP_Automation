@@ -37,7 +37,13 @@ export class BasePage {
   }
 
   async clickLink(name: string) {
-    const link = this.locator.link(name);
+    let link = this.locator.link(name);
+
+    // An <a> without href has no link role, so fall back to its text.
+    if ((await link.count()) === 0) {
+      link = this.page.locator("a", { hasText: name }).first();
+    }
+
     await link.waitFor({ state: "visible" });
     await link.click();
     await this.page.waitForURL("**/*", { timeout: 5000 });
@@ -90,6 +96,19 @@ export class BasePage {
 
   async expandRow(name: string) {
     const button = this.locator.expandRowButton(name);
+
+    if ((await button.count()) === 0) {
+      const toggle = this.page
+        .getByText(name, { exact: true })
+        .locator("xpath=following-sibling::button[1]")
+        .or(this.page.locator("button").filter({ hasText: name }))
+        .first();
+      await toggle.waitFor({ state: "visible", timeout: 10000 });
+      await toggle.click();
+      await this.page.waitForTimeout(1000);
+      return;
+    }
+
     await button.waitFor({ state: "visible" });
 
     const isExpanded = await button.getAttribute("aria-expanded");
