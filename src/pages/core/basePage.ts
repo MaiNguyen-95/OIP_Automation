@@ -37,14 +37,24 @@ export class BasePage {
   }
 
   async clickLink(name: string) {
-    const link = this.locator.link(name);
+    let link = this.locator.link(name);
+
+    // An <a> without href has no link role, so fall back to its text.
+    if ((await link.count()) === 0) {
+      link = this.page.locator("a", { hasText: name }).first();
+    }
+
     await link.waitFor({ state: "visible" });
     await link.click();
     await this.page.waitForURL("**/*", { timeout: 5000 });
     await this.page.waitForTimeout(3000);
   }
 
-  async verifyText(text: string, state: string): Promise<void> {
+  async verifyText(
+    text: string,
+    state: string,
+    timeout = 10000,
+  ): Promise<void> {
     const locator = this.locator.text(text);
     if (state === "visible") {
       await expect(locator).toBeVisible({ timeout });
@@ -85,10 +95,29 @@ export class BasePage {
   }
 
   async expandRow(name: string) {
-    const row = this.locator.expandRow(name);
-    await row.waitFor({ state: "visible" });
-    await row.click();
-    await this.page.waitForTimeout(1000);
+    const button = this.locator.expandRowButton(name);
+
+    if ((await button.count()) === 0) {
+      const toggle = this.page
+        .getByText(name, { exact: true })
+        .locator("xpath=following-sibling::button[1]")
+        .or(this.page.locator("button").filter({ hasText: name }))
+        .first();
+      await toggle.waitFor({ state: "visible", timeout: 10000 });
+      await toggle.click();
+      await this.page.waitForTimeout(1000);
+      return;
+    }
+
+    await button.waitFor({ state: "visible" });
+
+    const isExpanded = await button.getAttribute("aria-expanded");
+    if (isExpanded !== "true") {
+      await this.locator.expandRowToggle(name).click();
+      await expect(button).toHaveAttribute("aria-expanded", "true", {
+        timeout: 10000,
+      });
+    }
   }
 
   async clickTab(tabName: string): Promise<void> {

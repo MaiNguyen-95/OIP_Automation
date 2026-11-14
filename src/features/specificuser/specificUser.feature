@@ -14,15 +14,12 @@ Feature: Specific User
 
 
     @verifySpecifictext
-    Scenario Outline: User verifies static text
-        Then User verifies the "<text>" text is "<state>"
-
-        Examples:
-            | text                                                                             | state   |
-            | Enter User's Phone Number or User ID                                             | visible |
-            | Search                                                                           | visible |
-            | Clear                                                                            | visible |
-            | Enter the User’s Phone Number or User ID to check the status of a specific user. | visible |
+    Scenario: User verifies static text
+        Then User verifies the following texts are visible:
+            | Enter User's Phone Number or User ID                                             |
+            | Search                                                                           |
+            | Clear                                                                            |
+            | Enter the User’s Phone Number or User ID to check the status of a specific user. |
 
 
     @verifyinvaliduser
@@ -40,13 +37,14 @@ Feature: Specific User
     Scenario Outline: User searches with valid Phone Number
         When User inputs "<phoneNumber>" in the "Enter User's Phone Number or User ID" field
         And User clicks on the "Search" button
-        Then User verifies the "User Logs" text is "visible"
-        And User verifies the "Phone Number" text is "visible"
-        And User verifies the "Timestamp" text is "visible"
-        And User verifies the "Log type" text is "visible"
-        And User verifies the "Ingestion Source" text is "visible"
-        And User verifies the "Value" text is "visible"
-        And User verifies the "Status" text is "visible"
+        Then User verifies the following texts are visible:
+            | User Logs        |
+            | Phone Number     |
+            | Timestamp        |
+            | Log type         |
+            | Ingestion Source |
+            | Value            |
+            | Status           |
 
         Examples:
             | phoneNumber  |

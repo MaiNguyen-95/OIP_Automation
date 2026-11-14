@@ -34,8 +34,9 @@ Feature: Login
         When User inputs "<email>" in the "Email Address" field
         And User verifies the "Powered by Yara" text is "visible"
         And User clicks on the "<buttonName>" button
-        Then User verifies the "<successText>" text is "visible"
-        And User verifies the "<buttonBack>" text is "visible"
+        Then User verifies the following texts are visible:
+            | <successText> |
+            | <buttonBack>  |
         When User clicks on the "<buttonBack>" button
         Then User is navigated to the "<page>" page
 
